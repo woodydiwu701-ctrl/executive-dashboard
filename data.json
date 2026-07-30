@@ -1,204 +1,906 @@
 {
-  "updateTime": "2026-07-30 19:00",
+  "updateTime": "2026/07/30 18:57",
   "stats": {
-    "total": 451,
-    "modules": 6,
-    "warehouses": 2
+    "total": "450+",
+    "modules": 5,
+    "warehouses": 2,
+    "warehouseDetail": "深圳（科兴/滨海）· 香港（HKO-3728）"
   },
   "hongkong": {
-    "title": "香港仓库",
-    "summary": "贵重酒水41支 + 家庭用酒14支",
-    "badges": ["DRC", "勃艮第特级园", "波尔多一级庄"],
-    "count": 55,
-    "columns": ["名称", "年份", "库存", "行情价", "位置"],
+    "title": "🇭🇰 香港仓库（HKO-3728）",
+    "summary": "贵重 41 支 · 家庭 14 支 · 合计 55 支",
+    "badges": [
+      "DRC 康帝系列",
+      "Roumier 卢米耶",
+      "武戈伯爵",
+      "波尔多一级庄"
+    ],
+    "count": "55 支",
+    "columns": [
+      "酒款",
+      "年份",
+      "库存",
+      "行情价",
+      "标签"
+    ],
     "rows": [
-      {"name": "Roumier Charmes-Chambertin 卢米耶香牡-香贝丹特级园", "year": "2006", "stock": 4, "price": "HK$13,500", "location": "HKO-3728大酒柜 101-104"},
-      {"name": "Roumier Bonnes Mares 卢米耶波内玛尔特级园", "year": "2008", "stock": 3, "price": "HK$16,000", "location": "HKO-3728大酒柜 105-107"},
-      {"name": "Roumier Ruchottes 卢米耶卢索香贝丹特级园", "year": "2014", "stock": 3, "price": "HK$11,500", "location": "HKO-3728大酒柜 109-111"},
-      {"name": "Comte de Vogüé Bonnes Mares 武戈伯爵波内玛尔特级园", "year": "2008", "stock": 3, "price": "HK$6,800", "location": "HKO-3728大酒柜 113-115"},
-      {"name": "Comte de Vogüé Musigny 武戈伯爵慕西尼老藤特级园", "year": "2007", "stock": 3, "price": "HK$8,500", "location": "HKO-3728大酒柜 117-119"},
-      {"name": "DRC La Tâche 罗曼尼康帝拉塔希特级园", "year": "1996", "stock": 2, "price": "¥55,159", "location": "HKO-3728大酒柜 68-69"},
-      {"name": "DRC La Tâche 罗曼尼康帝拉塔希特级园", "year": "2013", "stock": 2, "price": "¥44,828", "location": "HKO-3728大酒柜 10-11"},
-      {"name": "DRC La Tâche 罗曼尼康帝拉塔希特级园", "year": "2017", "stock": 3, "price": "¥45,364", "location": "HKO-3728大酒柜 13-15"},
-      {"name": "DRC Richebourg 罗曼尼康帝李奇堡特级园", "year": "2013", "stock": 1, "price": "¥36,385", "location": "HKO-3728大酒柜 17"},
-      {"name": "DRC Richebourg 罗曼尼康帝李奇堡特级园", "year": "2017", "stock": 2, "price": "¥37,281", "location": "HKO-3728大酒柜 18-19"},
-      {"name": "DRC Romanée-Conti 罗曼尼康帝特级园", "year": "2013", "stock": 1, "price": "¥191,135", "location": "HKO-3728大酒柜 20"},
-      {"name": "DRC Romanée-Conti 罗曼尼康帝特级园", "year": "2017", "stock": 1, "price": "¥163,585", "location": "HKO-3728大酒柜 21"},
-      {"name": "DRC Romanée-St-Vivant 罗曼尼康帝圣维旺特级园", "year": "2017", "stock": 2, "price": "¥29,591", "location": "HKO-3728大酒柜 24-25"},
-      {"name": "DRC La Tâche 罗曼尼康帝拉塔希特级园", "year": "1988", "stock": 1, "price": "/", "location": "HKO-3728大酒柜 83"},
-      {"name": "DRC La Tâche 罗曼尼康帝拉塔希特级园", "year": "2004", "stock": 1, "price": "/", "location": "HKO-3728大酒柜 84"},
-      {"name": "Mazis-Chambertin Remoissenet 雷莫父子", "year": "2007", "stock": 1, "price": "¥4,522", "location": "HKO-3728大酒柜 67"},
-      {"name": "Château Haut-Brion 奥比昂", "year": "1993", "stock": 1, "price": "¥4,850", "location": "HKO-3728办公室 4"},
-      {"name": "Lafite 拉菲（Colin赠送）", "year": "2010", "stock": 1, "price": "/", "location": "HKO-3728办公室 65"},
-      {"name": "Château Palmer 宝玛酒庄", "year": "1961", "stock": 1, "price": "¥1,311", "location": "HKO-3728办公室 73"},
-      {"name": "Cos d'Estournel 爱士图尔", "year": "2016", "stock": 3, "price": "¥1,300", "location": "HKO-3728办公室 26-28"},
-      {"name": "Georg Müller Riesling 雷司令", "year": "2019", "stock": 2, "price": "¥780", "location": "HKO-3728办公室 62-63"},
-      {"name": "MACALLAN 麦卡伦 18年", "year": "1975", "stock": 1, "price": "/", "location": "HKO-3728办公室 32"},
-      {"name": "MACALLAN 麦卡伦 30年", "year": "1994", "stock": 1, "price": "/", "location": "HKO-3728办公室 72"},
-      {"name": "精品茅台", "year": "2022", "stock": 2, "price": "¥6,000", "location": "HKO-3728办公室 70-71"},
-      {"name": "Charmes-Chambertin", "year": "2011", "stock": 1, "price": "", "location": "HKO-3728桌面小酒柜 74"},
-      {"name": "Lafite Rothschild 拉菲", "year": "2015", "stock": 1, "price": "", "location": "HKO-3728桌面小酒柜 75"},
-      {"name": "Lafite Rothschild 拉菲", "year": "2016", "stock": 1, "price": "", "location": "HKO-3728桌面小酒柜 76"},
-      {"name": "F. Thiepont Causse Rouge 波尔多", "year": "2016", "stock": 1, "price": "", "location": "HKO-3728桌面小酒柜 77"},
-      {"name": "Mouton Rothschild 木桐", "year": "2005", "stock": 0, "price": "", "location": "HKO-3728桌面小酒柜 78"},
-      {"name": "Bourgogne Pinot Noir 勃艮第", "year": "2019", "stock": 1, "price": "", "location": "HKO-3728桌面小酒柜 79"},
-      {"name": "Champagne Sotheby 苏富比香槟", "year": "", "stock": 1, "price": "", "location": "HKO-3728桌面小酒柜 80"},
-      {"name": "Veuve Clicquot 凯歌香槟", "year": "", "stock": 1, "price": "", "location": "HKO-3728桌面小酒柜 81"},
-      {"name": "獺祭 Dassai 23", "year": "", "stock": 1, "price": "", "location": "HKO-3728大酒柜 82"},
-      {"name": "Chevalier Montrachet", "year": "1997", "stock": 1, "price": "", "location": "HKO-3728大酒柜 87"},
-      {"name": "Domaine Leroy Chambolle-Musigny", "year": "2013", "stock": 1, "price": "", "location": "HKO-3728大酒柜 88"},
-      {"name": "The MACALLAN 30 麦卡伦30年", "year": "", "stock": 2, "price": "", "location": "HKO-3728 99-100"},
-      {"name": "贵州茅台镇酒汇酱香酒", "year": "", "stock": 2, "price": "", "location": "HKO-3728 93-94"}
+      [
+        "2006年",
+        "4",
+        "4支",
+        "HK$13,500",
+        ""
+      ],
+      [
+        "2008年",
+        "3",
+        "3支",
+        "HK$16,000",
+        ""
+      ],
+      [
+        "2014年",
+        "3",
+        "3支",
+        "HK$11,500",
+        ""
+      ],
+      [
+        "2008年",
+        "3",
+        "3支",
+        "HK$6,800",
+        ""
+      ],
+      [
+        "2007年",
+        "3",
+        "3支",
+        "HK$8,500",
+        ""
+      ],
+      [
+        "1996年",
+        "2",
+        "2支",
+        "¥55,159",
+        ""
+      ],
+      [
+        "2013年",
+        "2",
+        "2支",
+        "¥44,828",
+        ""
+      ],
+      [
+        "2017年",
+        "3",
+        "3支",
+        "¥45,364",
+        ""
+      ],
+      [
+        "2013年",
+        "1",
+        "1支",
+        "¥36,385",
+        ""
+      ],
+      [
+        "2017年",
+        "2",
+        "2支",
+        "¥37,281",
+        ""
+      ],
+      [
+        "2013年",
+        "1",
+        "1支",
+        "¥191,135",
+        ""
+      ],
+      [
+        "2017年",
+        "1",
+        "1支",
+        "¥163,585",
+        ""
+      ],
+      [
+        "2017年",
+        "2",
+        "2支",
+        "¥29,591",
+        ""
+      ],
+      [
+        "1988年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "2004年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "2007年",
+        "1",
+        "1支",
+        "¥4,522",
+        ""
+      ],
+      [
+        "1993年",
+        "1",
+        "1支",
+        "¥4,850",
+        ""
+      ],
+      [
+        "2010年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "1961年",
+        "1",
+        "1支",
+        "1966年 ¥1311",
+        ""
+      ],
+      [
+        "2016年",
+        "3",
+        "3支",
+        "¥1,300",
+        ""
+      ],
+      [
+        "2019年",
+        "2",
+        "2支",
+        "¥780",
+        ""
+      ],
+      [
+        "¥6,000",
+        "/",
+        "2支",
+        "—",
+        ""
+      ],
+      [
+        "2011年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "2015年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "2016年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "2016年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "2019年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "1997年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "2013年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "1994年",
+        "0.7",
+        "0.7支",
+        "¥4,950",
+        ""
+      ],
+      [
+        "2017年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "2022年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "2022年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "2021年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "¥6,000",
+        "/",
+        "0.5支",
+        "—",
+        ""
+      ],
+      [
+        "2006年",
+        "1",
+        "1支",
+        "¥40,000",
+        ""
+      ],
+      [
+        "科兴1号酒柜",
+        "¥44,700",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴1号酒柜",
+        "¥40,875",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴1号酒柜",
+        "¥49,000",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴1号酒柜",
+        "¥29138~¥4300",
+        "2支",
+        "—",
+        ""
+      ],
+      [
+        "科兴1号酒柜",
+        "¥35914~¥5543",
+        "2支",
+        "—",
+        ""
+      ],
+      [
+        "1994年",
+        "1",
+        "1支",
+        "¥20000~¥24835",
+        ""
+      ],
+      [
+        "科兴1号酒柜",
+        "¥29785~¥4467",
+        "6支",
+        "—",
+        ""
+      ],
+      [
+        "科兴1号酒柜",
+        "¥21,531",
+        "7支",
+        "—",
+        ""
+      ],
+      [
+        "科兴1号酒柜",
+        "¥16,068",
+        "7支",
+        "—",
+        ""
+      ],
+      [
+        "科兴1号酒柜",
+        "¥16,119",
+        "6支",
+        "—",
+        ""
+      ],
+      [
+        "1999年",
+        "13",
+        "13支",
+        "¥13,900",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥16,600",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "/",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥9,793",
+        "6支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥12,000",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥26,900",
+        "8支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥15,500",
+        "2支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥14,738",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥10,900",
+        "28支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥11,600",
+        "12支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥13,380",
+        "12支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥14,400",
+        "4支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥8,450",
+        "6支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥15,480",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴2号酒柜",
+        "¥6,024",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥12,943",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥8,300",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥21,800",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥18,780",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥10,407",
+        "5支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥67,100",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥36,800",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥67,700",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥71,300",
+        "2支",
+        "—",
+        ""
+      ],
+      [
+        "科兴2号酒柜[2]",
+        "¥38,900",
+        "2支",
+        "—",
+        ""
+      ],
+      [
+        "科兴2号酒柜",
+        "¥76,100",
+        "2支",
+        "—",
+        ""
+      ],
+      [
+        "科兴4号新酒柜",
+        "¥549,450",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "2011年",
+        "23",
+        "23支",
+        "¥1470~¥2000",
+        ""
+      ],
+      [
+        "1998年",
+        "2",
+        "2支",
+        "¥70,000",
+        ""
+      ],
+      [
+        "1975年",
+        "1",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "¥5,088",
+        "2021年采购",
+        "2支",
+        "—",
+        ""
+      ],
+      [
+        "¥268/3瓶",
+        "已过期！",
+        "6支",
+        "—",
+        ""
+      ],
+      [
+        "¥3,200",
+        "2021年采购",
+        "1支",
+        "—",
+        ""
+      ]
     ]
   },
   "shenzhen": {
-    "title": "深圳仓库",
-    "summary": "红白酒181支 + 茅台163支 + 洋酒52支",
-    "badges": ["波尔多一级庄", "勃艮第", "茅台", "清酒"],
-    "count": 396,
-    "columns": ["名称", "年份", "库存", "行情价", "位置"],
+    "title": "🏢 深圳仓库（科兴 / 滨海）",
+    "summary": "红白酒 181 · 茅台 163 · 洋酒 52 · 合计约 396 支",
+    "badges": [
+      "波尔多五大名庄",
+      "DRC 依瑟索/圣维旺",
+      "勒弗莱白葡萄酒",
+      "飞天茅台 70+"
+    ],
+    "count": "约 396 支",
+    "columns": [
+      "酒款",
+      "库存",
+      "行情价",
+      "位置"
+    ],
     "rows": [
-      {"name": "Domaine de la Romanée-Conti Echezeaux 康帝小依瑟索", "year": "2006", "stock": 1, "price": "¥40,000", "location": "科兴1号酒柜"},
-      {"name": "Domaine de la Romanée-Conti Echezeaux 康帝小依瑟索", "year": "2007", "stock": 0, "price": "¥44,707", "location": "科兴1号酒柜"},
-      {"name": "Domaine de la Romanée-Conti Echezeaux 康帝小依瑟索", "year": "2010", "stock": 1, "price": "¥44,700", "location": "科兴1号酒柜"},
-      {"name": "Domaine de la Romanée-Conti Echezeaux 康帝小依瑟索", "year": "2012", "stock": 1, "price": "¥40,875", "location": "科兴1号酒柜"},
-      {"name": "DRC St Vivant 康帝圣维旺（深圳）", "year": "2006", "stock": 1, "price": "¥49,000", "location": "科兴1号酒柜"},
-      {"name": "DRC St Vivant 康帝圣维旺（深圳）", "year": "2007", "stock": 0, "price": "¥42,579", "location": "科兴1号酒柜"},
-      {"name": "DRC Romanée-Conti 康帝特级园（深圳）", "year": "2004", "stock": 0, "price": "¥299,000", "location": "科兴1号酒柜"},
-      {"name": "Domaine du Comte Liger-Belair Echezeaux 里贝伯爵依瑟索", "year": "2011", "stock": 2, "price": "¥29,138~¥43,000", "location": "科兴1号酒柜"},
-      {"name": "Domaine Armand Rousseau Chambertin-Clos-de-Bèze 阿曼卢梭贝日园", "year": "2012", "stock": 2, "price": "¥35,914~¥55,430", "location": "科兴1号酒柜"},
-      {"name": "Domaine Leflaive Bâtard-Montrachet 勒弗莱巴塔蒙哈榭", "year": "1994", "stock": 1, "price": "¥20,000~¥24,835", "location": "科兴1号酒柜"},
-      {"name": "Domaine Leflaive Chevalier-Montrachet 勒弗莱斯骑士蒙哈榭", "year": "2002", "stock": 6, "price": "¥29,785~¥44,677", "location": "科兴1号酒柜"},
-      {"name": "Domaine Leflaive Chevalier-Montrachet 勒弗莱斯骑士蒙哈榭", "year": "2005", "stock": 7, "price": "¥21,531", "location": "科兴1号酒柜"},
-      {"name": "Domaine Leflaive Bienvenues-Bâtard-Montrachet 勒弗莱比沃尼巴塔蒙哈榭", "year": "2006", "stock": 7, "price": "¥16,068", "location": "科兴1号酒柜"},
-      {"name": "Domaine Leflaive Bienvenues-Bâtard-Montrachet 勒弗莱比沃尼巴塔蒙哈榭", "year": "2008", "stock": 6, "price": "¥16,119", "location": "科兴1号酒柜"},
-      {"name": "Lafite 拉菲", "year": "1999", "stock": 13, "price": "¥13,900", "location": "科兴2号[8]+滨海[4]+北京亚金[1]"},
-      {"name": "Château Latour 拉图", "year": "1992", "stock": 1, "price": "¥11,425", "location": "滨海"},
-      {"name": "Mouton 木桐", "year": "1986", "stock": 1, "price": "¥16,600", "location": "科兴4号新酒柜"},
-      {"name": "Mouton 木桐", "year": "2000", "stock": 1, "price": "/", "location": "科兴4号新酒柜"},
-      {"name": "Mouton 木桐", "year": "2016", "stock": 6, "price": "¥9,793", "location": "科兴4号新酒柜"},
-      {"name": "Mouton 木桐", "year": "2013", "stock": 1, "price": "¥12,000", "location": "科兴4号新酒柜"},
-      {"name": "Lafite 拉菲", "year": "1986", "stock": 8, "price": "¥26,900", "location": "科兴4号新酒柜"},
-      {"name": "Lafite 拉菲", "year": "1996", "stock": 2, "price": "¥15,500", "location": "科兴4号新酒柜"},
-      {"name": "Lafite 拉菲", "year": "2000", "stock": 1, "price": "¥14,738", "location": "科兴4号新酒柜"},
-      {"name": "Lafite 拉菲", "year": "2003", "stock": 28, "price": "¥10,900", "location": "科兴4号新酒柜"},
-      {"name": "Lafite 拉菲", "year": "2009", "stock": 12, "price": "¥11,600", "location": "科兴4号新酒柜"},
-      {"name": "Lafite 拉菲", "year": "2016", "stock": 12, "price": "¥13,380", "location": "科兴4号新酒柜"},
-      {"name": "Lafite 拉菲（朋友赠送）", "year": "1982", "stock": 2, "price": "¥37,900", "location": "滨海"},
-      {"name": "Lafite 拉菲（Enzo赠送）", "year": "1975", "stock": 1, "price": "/", "location": "滨海"},
-      {"name": "Château Latour 拉图", "year": "1996", "stock": 4, "price": "¥14,400", "location": "科兴4号新酒柜"},
-      {"name": "Château Latour 拉图", "year": "2003", "stock": 6, "price": "¥8,450", "location": "科兴4号新酒柜"},
-      {"name": "Château Latour 拉图", "year": "2009", "stock": 1, "price": "¥15,480", "location": "科兴4号新酒柜"},
-      {"name": "Château Latour 拉图（Poco赠送）", "year": "1975", "stock": 1, "price": "¥6,024", "location": "科兴2号酒柜"},
-      {"name": "Château Margaux 玛歌", "year": "1990", "stock": 1, "price": "¥12,943", "location": "科兴4号新酒柜"},
-      {"name": "Château Margaux 玛歌", "year": "2000", "stock": 1, "price": "¥8,300", "location": "科兴4号新酒柜"},
-      {"name": "Château Haut-Brion 奥比昂", "year": "1989", "stock": 1, "price": "¥21,800", "location": "科兴4号新酒柜"},
-      {"name": "Château Haut-Brion 奥比昂（特别版）", "year": "2010", "stock": 1, "price": "¥18,780", "location": "科兴4号新酒柜"},
-      {"name": "Château Haut-Brion 奥比昂", "year": "2016", "stock": 5, "price": "¥10,407", "location": "科兴4号新酒柜"},
-      {"name": "Château Pétrus 帕图斯", "year": "1989", "stock": 1, "price": "¥67,100", "location": "科兴4号新酒柜"},
-      {"name": "Château Pétrus 帕图斯", "year": "1990", "stock": 1, "price": "¥36,800", "location": "科兴4号新酒柜"},
-      {"name": "Château Pétrus 帕图斯", "year": "2000", "stock": 1, "price": "¥67,700", "location": "科兴4号新酒柜"},
-      {"name": "Château Pétrus 帕图斯", "year": "2009", "stock": 2, "price": "¥71,300", "location": "科兴4号新酒柜"},
-      {"name": "Château Pétrus 帕图斯", "year": "1995", "stock": 2, "price": "¥38,900", "location": "科兴2号酒柜"},
-      {"name": "Château Pétrus 帕图斯", "year": "1996", "stock": 2, "price": "¥76,100", "location": "科兴2号酒柜"},
-      {"name": "Le Pin 里鹏", "year": "2009", "stock": 1, "price": "¥549,450", "location": "科兴4号新酒柜"},
-      {"name": "Château Pichon-Longueville Baron 碧尚男爵", "year": "2011", "stock": 23, "price": "¥1,470~¥2,000", "location": "科兴3号酒柜"},
-      {"name": "Domaine Jean-Louis Chave Ermitage 路易沙夫", "year": "1998", "stock": 2, "price": "¥70,000", "location": "滨海"},
-      {"name": "Masseto 马赛多", "year": "2014", "stock": 0, "price": "¥8,200", "location": "滨海"},
-      {"name": "Graham's 格兰姆波特酒", "year": "1975", "stock": 1, "price": "", "location": "科兴2号酒柜"},
-      {"name": "飞天茅台 2024年（42度）", "year": "/", "stock": 2, "price": "¥5,088", "location": "科兴"},
-      {"name": "蓝色茅台 2021", "year": "/", "stock": 6, "price": "", "location": "滨海"},
-      {"name": "玫瑰金茅台 2021", "year": "/", "stock": 6, "price": "", "location": "滨海"},
-      {"name": "金色茅台 2022", "year": "/", "stock": 6, "price": "", "location": "滨海"},
-      {"name": "Tiffany茅台 2021", "year": "/", "stock": 6, "price": "", "location": "滨海"},
-      {"name": "虎年茅台 2022", "year": "/", "stock": 1, "price": "", "location": "滨海"},
-      {"name": "兔年茅台 2023", "year": "/", "stock": 2, "price": "", "location": "滨海"},
-      {"name": "蛇年茅台 2025", "year": "/", "stock": 1, "price": "", "location": "滨海"},
-      {"name": "精品茅台 2017", "year": "/", "stock": 23, "price": "", "location": "科兴[14]+滨海[7.5]"},
-      {"name": "飞天茅台 2021", "year": "/", "stock": 3, "price": "", "location": "滨海"},
-      {"name": "飞天茅台 2018", "year": "/", "stock": 1, "price": "¥3,680~¥3,899", "location": "滨海"},
-      {"name": "飞天茅台 2016", "year": "/", "stock": 1, "price": "¥3,770~¥3,899", "location": "滨海"},
-      {"name": "飞天茅台 2015", "year": "/", "stock": 4, "price": "¥3,910~¥3,990", "location": "滨海"},
-      {"name": "飞天茅台 2014", "year": "/", "stock": 6, "price": "", "location": "滨海"},
-      {"name": "飞天茅台 2006", "year": "/", "stock": 9, "price": "", "location": "科兴"},
-      {"name": "飞天茅台 2005", "year": "/", "stock": 10, "price": "", "location": "滨海"},
-      {"name": "茅台董事长老酒（朋友赠送）", "year": "/", "stock": 2, "price": "未查询", "location": "科兴"},
-      {"name": "茅台酱香型白酒（朋友赠送）", "year": "/", "stock": 1, "price": "未查询", "location": "科兴"},
-      {"name": "茅台mini礼盒（PCG赠送）", "year": "/", "stock": 1, "price": "¥1,100", "location": "滨海"},
-      {"name": "茅台酿原浆酒（朋友赠送）", "year": "/", "stock": 2, "price": "未查询", "location": "科兴"},
-      {"name": "陈年茅台 1989（朋友赠送）", "year": "/", "stock": 1, "price": "未查询", "location": "科兴"},
-      {"name": "茅台1975三大革命（刘韬赠送）", "year": "/", "stock": 1, "price": "未查询", "location": "滨海"},
-      {"name": "茅台宇之浩瀚（Colin赠送）", "year": "/", "stock": 1, "price": "未查询", "location": "科兴"},
-      {"name": "金沙古酱（礼品）", "year": "/", "stock": 6, "price": "未查询", "location": "科兴"},
-      {"name": "TIMi天美白酒（礼品）", "year": "/", "stock": 6, "price": "未查询", "location": "滨海"},
-      {"name": "TIMi天美樽十（礼品）", "year": "/", "stock": 10, "price": "¥698", "location": "滨海"},
-      {"name": "TIMi天美樽十五（礼品）", "year": "/", "stock": 10, "price": "", "location": "滨海"},
-      {"name": "六大家文化纪念酒（朋友赠送）", "year": "/", "stock": 6, "price": "未查询", "location": "滨海"},
-      {"name": "中国老绍坊黄酒（李宁赠送）", "year": "/", "stock": 19, "price": "/", "location": "科兴[4]+滨海[15]"},
-      {"name": "G.H. Mumm 玛姆红带香槟", "year": "", "stock": 5, "price": "¥970", "location": "科兴3号酒柜"},
-      {"name": "Dom Pérignon 唐培里侬香槟", "year": "", "stock": 10, "price": "¥2,049", "location": "科兴3号酒柜"},
-      {"name": "Moët & Chandon 酩悦香槟", "year": "", "stock": 1, "price": "¥595", "location": "科兴3号酒柜"},
-      {"name": "Armand de Brignac 黑桃A香槟", "year": "", "stock": 4, "price": "¥2,799", "location": "科兴3号酒柜"},
-      {"name": "Veuve Clicquot 凯哥皇牌（朋友赠送）", "year": "", "stock": 1, "price": "¥892", "location": "滨海"},
-      {"name": "Billecart Salmon 沙龙白中白 1996（朋友赠送）", "year": "1996", "stock": 3, "price": "¥1,060", "location": "滨海"},
-      {"name": "库克庄园香槟 2000（朋友赠送）", "year": "2000", "stock": 6, "price": "¥6,459", "location": "滨海"},
-      {"name": "Dom Pérignon 唐培里侬极干香槟", "year": "", "stock": 2, "price": "¥2,049", "location": "滨海"},
-      {"name": "Armand de Brignac 黑桃A香槟", "year": "", "stock": 1, "price": "¥2,799", "location": "滨海"},
-      {"name": "Yamazaki 山崎18年限量版", "year": "", "stock": 3, "price": "¥17,408", "location": "科兴[2]+滨海[1]"},
-      {"name": "竹鹤威士忌 17", "year": "", "stock": 1, "price": "¥3,800", "location": "滨海"},
-      {"name": "HIBIKI 响21年（礼品）", "year": "", "stock": 0.5, "price": "¥9,880", "location": "滨海"},
-      {"name": "MACALLAN 麦卡伦18年（朋友赠送）", "year": "", "stock": 1, "price": "", "location": "HKO太古"},
-      {"name": "MACALLAN 麦卡伦30年蓝标", "year": "", "stock": 1, "price": "¥78,000", "location": "科兴"},
-      {"name": "MACALLAN 麦卡伦28年（朋友赠送）", "year": "", "stock": 10, "price": "¥13,000", "location": "滨海"},
-      {"name": "COURVISIER 拿破仑XO", "year": "", "stock": 1, "price": "¥780", "location": "科兴"},
-      {"name": "HENNESSY 轩尼诗迷你50ml", "year": "", "stock": 1, "price": "mini", "location": "科兴"},
-      {"name": "太师龙N29XO", "year": "", "stock": 1, "price": "¥8,388", "location": "科兴"},
-      {"name": "路易十三", "year": "", "stock": 1, "price": "¥23,880", "location": "科兴"},
-      {"name": "轩尼诗百乐廷（朋友赠送）", "year": "", "stock": 1, "price": "¥7,299", "location": "滨海"},
-      {"name": "卡轮兹干邑1975（刘韬赠送）", "year": "1975", "stock": 1, "price": "/", "location": "滨海"},
-      {"name": "青岛啤酒（朋友赠送）", "year": "", "stock": 6, "price": "¥268/3瓶", "location": "滨海"},
-      {"name": "十四代秘藏清酒 720ml", "year": "", "stock": 1, "price": "¥3,400", "location": "滨海"},
-      {"name": "新政白色特别版x-type", "year": "", "stock": 1, "price": "¥2,180", "location": "滨海"},
-      {"name": "新政2021牛年限定", "year": "", "stock": 1, "price": "¥1,280", "location": "滨海"},
-      {"name": "秘藏酒十四代（Coin赠送）", "year": "", "stock": 1, "price": "", "location": "科兴3号柜"}
+      [
+        "【新编号1】新政Colors(绿)",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号3】新政X-Type NO.6",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号5】新政Colors秋樱(黄)",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "【编号6】新政天蛙Spark",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "【编号7-8】新政天蛙Spark",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "【编号9】新政紫八咫",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "【编号10】新政PINK独角兽",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "【编号11/15】新政PINK独角兽",
+        "2瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号12】新政异端教主",
+        "年份：2019年数量：1支规格：760ml制作年月：2020.4",
+        "—",
+        ""
+      ],
+      [
+        "【编号13】新政异端教主",
+        "年份：2017年数量：1支规格：760ml制作年月：2018.7",
+        "—",
+        ""
+      ],
+      [
+        "【编号14】新政异端教主",
+        "年份：2018年数量：1支规格：760ml制作年月：2019.3",
+        "—",
+        ""
+      ],
+      [
+        "【编号16】新政PINK独角兽",
+        "0瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号17】新政PINK独角兽",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "【编号18】新政Fermen-Type NO.6",
+        "年份：2022年数量：1支规格：720ml制作年月：2023.6",
+        "—",
+        ""
+      ],
+      [
+        "【编号19】15周年阳乃鸟",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号20】新政PINK独角兽",
+        "年份：2018年数量：1支规格：760ml制作年月：2019.6",
+        "—",
+        ""
+      ],
+      [
+        "【编号21】15周年阳乃鸟",
+        "年份：2008年数量：1支规格：720ml制作年月：2023.12",
+        "—",
+        ""
+      ],
+      [
+        "【编号22】新政天蛙Spark",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号23】新政PINK独角兽",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号24】新政天蛙Spark",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "【编号25】2018年度特别颁布会、新政",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号26】2018年度特别颁布会、新政",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "【编号27】新政PINK独角兽",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号28】新政PINK独角兽",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号29】新政PINK独角兽",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "【编号30】2018年度特别颁布会、新政",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "【编号31】十四代【龙泉】",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号32】2018年度特别颁布会、新政",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号33】新政PINK独角兽",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号34】创业170年纪念酒",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号35】创业17年纪念酒",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号36】新政天蛙Spark",
+        "1支",
+        "—",
+        ""
+      ],
+      [
+        "【编号37】新政天蛙Spark",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号38】新政PINK独角兽",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【未编号】清酒",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【未编号】阳乃鸟十周年",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号39】新政天蛙Spark (天蛙Clear 2022)",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "【编号40】新政天蛙Spark (天蛙Clear Dry 2022)",
+        "1瓶",
+        "—",
+        ""
+      ],
+      [
+        "2025/1/7",
+        "羊肉数量：🥩总计：20小箱(绿色)(10个快递大纸箱-即每个纸箱中有两小箱 [绿色]，小箱是泡沫箱，如图)【每小箱含量】- 肉(卷状)：5盒- 肉(块状)：3盒- 调料：1盒 (2瓶/盒)【全部加总合计】- 肉(卷状)：100盒- 肉(块状)：60盒- 调料：20盒 (2瓶/盒)",
+        "—",
+        ""
+      ]
     ]
   },
   "modules": [
     {
-      "name": "酒水总览",
+      "icon": "✈️",
+      "title": "差旅出行",
+      "desc": "管理老板的出行计划与差旅安排，记录航班/高铁、酒店预订、接送车辆及出行备注。",
+      "tags": [
+        "航班/高铁",
+        "酒店预订",
+        "接送安排",
+        "出行备注"
+      ],
+      "link": "https://docs.qq.com/sheet/DU2dzUGFNR0VhT1hN"
+    },
+    {
       "icon": "🍷",
-      "link": "https://docs.qq.com/sheet/PNiLiietRtUt",
-      "desc": "酒水明细总表，完整库存记录"
+      "title": "酒水库存管理",
+      "desc": "整合深圳+香港两大仓库酒水数据，支持实时出入库登记、每月行情价格更新。",
+      "tags": [
+        "出入库登记",
+        "行情价格",
+        "深圳仓库",
+        "香港仓库"
+      ],
+      "link": "https://docs.qq.com/sheet/DU05MeXZDSGdST1pV"
     },
     {
-      "name": "香港贵重酒水",
-      "icon": "🇭🇰",
-      "link": "https://docs.qq.com/sheet/PFUGUoxJGdyy",
-      "desc": "DRC、勃艮第特级园、波尔多一级庄"
+      "icon": "📦",
+      "title": "仓库物资管理",
+      "desc": "管理办公室日常物资库存，记录物品名称、数量、位置及低库存预警。",
+      "tags": [
+        "库存数量",
+        "存放位置",
+        "低库存预警",
+        "出入库"
+      ],
+      "link": "https://docs.qq.com/sheet/DU1hUR3dNVEt1WE9T"
     },
     {
-      "name": "香港家庭用酒",
-      "icon": "🏠",
-      "link": "https://docs.qq.com/sheet/PFUGUoxJGdyy",
-      "desc": "日常餐酒、香槟、清酒"
+      "icon": "🎁",
+      "title": "礼品管理",
+      "desc": "统一管理礼品库存、采购价与市场价、适用场合及出库记录。",
+      "tags": [
+        "库存管理",
+        "采购市价",
+        "适用场合"
+      ],
+      "link": "https://docs.qq.com/sheet/DU2JiQWdOeEt0YVp6"
     },
     {
-      "name": "深圳红白酒",
-      "icon": "🍇",
-      "link": "https://docs.qq.com/sheet/PLlYeBhwmrwK",
-      "desc": "波尔多一级庄、勃艮第（含DRC Echezeaux/St Vivant）"
+      "icon": "🤝",
+      "title": "客户关系维护",
+      "desc": "记录重要客户信息、偏好禁忌、跟进节点，支持提醒维护安排。",
+      "tags": [
+        "客户档案",
+        "偏好禁忌",
+        "跟进提醒"
+      ],
+      "link": "https://docs.qq.com/sheet/DU2VBRkRvenZLeGdo"
     },
     {
-      "name": "深圳茅台白酒",
-      "icon": "🥃",
-      "link": "https://docs.qq.com/sheet/PLlYeBhwmrwK",
-      "desc": "飞天茅台、颜色茅台、礼品茅台、黄酒"
-    },
-    {
-      "name": "深圳洋酒清酒",
-      "icon": "🥂",
-      "link": "https://docs.qq.com/sheet/PLlYeBhwmrwK",
-      "desc": "香槟、威士忌、白兰地、清酒、啤酒"
+      "icon": "📁",
+      "title": "腾讯文档文件夹",
+      "desc": "所有模块关联的腾讯文档云端存储位置，可管理分享权限、邀请协同编辑。",
+      "tags": [
+        "云端存储",
+        "权限管理",
+        "团队协同"
+      ],
+      "link": "https://docs.qq.com/desktop/mydoc/folder/SmLyTSIxEpzs"
     }
   ]
 }
