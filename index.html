@@ -16,8 +16,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 .stat-card .num{font-size:32px;font-weight:800;color:#0f3460;line-height:1.1}
 .stat-card .label{font-size:13px;color:#6b7280;margin-top:4px}
 .stat-card .sub{font-size:11px;color:#9ca3af;margin-top:2px}
+.search-bar{padding:16px 40px;background:#fff;border-bottom:1px solid #e8eaed;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.search-bar .search-wrap{flex:1;min-width:300px;position:relative}
+.search-bar input{width:100%;padding:10px 14px 10px 38px;border:2px solid #e0e4ea;border-radius:10px;font-size:14px;outline:none;transition:border-color .2s}
+.search-bar input:focus{border-color:#2563eb}
+.search-bar .search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;color:#9ca3af;pointer-events:none}
+.search-bar .tip{font-size:12px;color:#9ca3af;white-space:nowrap}
+.search-results{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid #e0e4ea;border-radius:0 0 10px 10px;max-height:300px;overflow-y:auto;z-index:100;box-shadow:0 8px 20px rgba(0,0,0,.12);margin-top:2px}
+.search-results.show{display:block}
+.search-results .item{padding:10px 14px;border-bottom:1px solid #f3f4f6;cursor:pointer;font-size:13px;transition:background .15s}
+.search-results .item:hover,.search-results .item.active{background:#eff6ff}
+.search-results .item .name{font-weight:600;color:#1a1a2e}
+.search-results .item .meta{font-size:11px;color:#6b7280;margin-top:2px}
+.search-results .item .stock{font-weight:600;color:#059669}
+.search-results .item .location{color:#2563eb;font-weight:500}
+.search-results .empty{padding:16px;text-align:center;color:#9ca3af;font-size:13px}
+.search-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.2);z-index:99}
+.search-overlay.show{display:block}
 .main{padding:24px 40px;max-width:1400px}
-.section-title{font-size:18px;font-weight:700;margin-bottom:16px;color:#1a1a2e}
+.section-title{font-size:18px;font-weight:700;margin-bottom:16px;color:#1a1a2e;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.section-title .result-count{font-size:13px;font-weight:400;color:#2563eb;background:#eff6ff;padding:2px 10px;border-radius:12px}
 .modules{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
 .module-card{background:#fff;border-radius:14px;padding:22px;border:1px solid #eef0f4;transition:transform .15s,box-shadow .15s;display:flex;flex-direction:column;gap:8px}
 .module-card:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.08)}
@@ -30,7 +48,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 .module-card a:hover{text-decoration:underline}
 .wine-section{margin-top:32px}
 .wine-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:900px){.wine-grid{grid-template-columns:1fr}.stats-bar{gap:8px}.main{padding:16px 20px}.header{padding:20px}}
+@media(max-width:900px){.wine-grid{grid-template-columns:1fr}.stats-bar,.search-bar,.main{padding-left:20px;padding-right:20px}.header{padding:20px}.search-bar .search-wrap{min-width:200px}.modules{grid-template-columns:1fr}}
 .wine-card{background:#fff;border-radius:14px;border:1px solid #eef0f4;overflow:hidden}
 .wine-card-header{padding:14px 18px 10px;font-weight:700;font-size:15px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .wine-card-header.hk{background:#fff7ed;color:#c2410c}
@@ -40,6 +58,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 .wine-table th{background:#f8f9fb;padding:8px 10px;text-align:left;font-weight:600;color:#6b7280;font-size:11px;border-bottom:2px solid #eef0f4}
 .wine-table td{padding:6px 10px;border-bottom:1px solid #f3f4f6;color:#374151;line-height:1.4}
 .wine-table tr:hover td{background:#fafbfc}
+.wine-table tr.highlight td{background:#fef3c7!important}
 .wine-table .price{font-weight:600;color:#059669;white-space:nowrap}
 .wine-summary{padding:4px 18px 10px;font-size:12px;display:flex;gap:6px;flex-wrap:wrap}
 .badge{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;white-space:nowrap}
@@ -49,6 +68,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 .badge.amber{background:#fffbeb;color:#d97706}
 .footer{padding:16px 40px;font-size:12px;color:#9ca3af;text-align:center;border-top:1px solid #eef0f4;margin-top:32px}
 .loading{text-align:center;padding:40px;color:#9ca3af;font-size:14px}
+.price-note{font-size:11px;color:#9ca3af;margin-top:4px}
 </style>
 </head>
 <body>
@@ -69,6 +89,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 <div class="stat-card"><div class="num">实时</div><div class="label">在线协同</div><div class="sub">腾讯文档云端同步</div></div>
 </div>
 
+<div class="search-bar">
+<div class="search-wrap">
+<span class="search-icon">🔍</span>
+<input type="text" id="searchInput" placeholder="搜索酒水名称（如：茅台、DRC、拉菲、帕图斯...）" autocomplete="off">
+<div class="search-results" id="searchResults"></div>
+</div>
+<span class="tip">输入酒名或关键词，快速定位库存</span>
+</div>
+<div class="search-overlay" id="searchOverlay"></div>
+
 <div class="main">
 
 <div class="section-title">📋 功能模块入口</div>
@@ -88,26 +118,108 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 
 </div>
 
-<div class="footer">⚡ 数据来源：腾讯文档在线表格 · 自动同步 · 高管事务支持团队共享看板</div>
+<div class="footer">⚡ 数据来源：腾讯文档在线表格 · 自动同步 · 行情价每月 1 日更新（参考 Wine-Searcher / Liv-ex）</div>
 
 <script>
+let allWineData = [];
+
 function normalizeRows(rows,cols){
   if(!rows||!rows.length)return[];
   if(Array.isArray(rows[0]))return rows;
-  const kmap={名称:0,年份:1,库存:2,行情价:3,位置:4,酒款:0,标签:4,stock:2,price:3,name:0,year:1,location:4};
   return rows.map(r=>{
     if(Array.isArray(r))return r;
     if(typeof r==='object'){
       const a=[];
-      for(let i=0;i<cols.length;i++){
-        const k=Object.keys(kmap).find(kk=>cols[i].includes(kk))||cols[i];
-        const v=r[kmap[k]]!==undefined?Object.values(r)[kmap[k]]:r[k]||r[cols[i]]||'—';
-        a.push(String(v||'—'));
-      }
+      for(let i=0;i<cols.length;i++)a.push(String(r[Object.keys(r)[i]]||'—'));
       return a;
     }
     return [];
   });
+}
+
+function searchWine(query){
+  if(!query.trim()){
+    document.getElementById('searchResults').classList.remove('show');
+    document.getElementById('searchOverlay').classList.remove('show');
+    document.querySelectorAll('.highlight').forEach(el=>el.classList.remove('highlight'));
+    document.getElementById('wineContent').scrollIntoView({behavior:'smooth'});
+    return;
+  }
+  const q=query.toLowerCase();
+  const results=[];
+  allWineData.forEach(w=>{
+    const name=(w.row[0]||'').toLowerCase();
+    if(name.includes(q)){
+      results.push({...w,score:name.indexOf(q)===0?2:1});
+    }
+  });
+  results.sort((a,b)=>b.score-a.score);
+  renderResults(results);
+}
+
+function renderResults(results){
+  const container=document.getElementById('searchResults');
+  const overlay=document.getElementById('searchOverlay');
+  if(!results.length){
+    container.innerHTML='<div class="empty">未找到匹配的酒款，试试其他关键词</div>';
+  }else{
+    let h='';
+    results.forEach((r,i)=>{
+      h+=`<div class="item" data-idx="${i}" onclick="selectResult(${i})">
+        <div class="name">🍷 ${r.row[0]}</div>
+        <div class="meta">
+          库存 <span class="stock">${r.row[2]}</span> · 
+          行情价 <span class="stock">${r.row[3]}</span> · 
+          存放 <span class="location">${r.row[4]}</span> · 
+          ${r.warehouse}
+        </div>
+      </div>`;
+    });
+    container.innerHTML=h;
+    container._results=results;
+  }
+  container.classList.add('show');
+  overlay.classList.add('show');
+}
+
+function selectResult(idx){
+  const results=document.getElementById('searchResults')._results||[];
+  if(!results[idx])return;
+  const r=results[idx];
+  closeSearch();
+  // Highlight and scroll to matching row
+  highlightRow(r);
+}
+
+function highlightRow(target){
+  document.querySelectorAll('.highlight').forEach(el=>el.classList.remove('highlight'));
+  const name=target.row[0];
+  const rows=document.querySelectorAll('.wine-table tbody tr');
+  rows.forEach(tr=>{
+    if(tr.cells[0]&&tr.cells[0].textContent.includes(name.substring(0,10))){
+      tr.classList.add('highlight');
+      tr.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  });
+}
+
+function closeSearch(){
+  document.getElementById('searchResults').classList.remove('show');
+  document.getElementById('searchOverlay').classList.remove('show');
+  document.getElementById('searchInput').value='';
+}
+
+function initSearch(warehouse){
+  document.getElementById('searchOverlay').onclick=closeSearch;
+  const input=document.getElementById('searchInput');
+  let timer;
+  input.oninput=()=>{
+    clearTimeout(timer);
+    timer=setTimeout(()=>searchWine(input.value),200);
+  };
+  input.onkeydown=e=>{
+    if(e.key==='Escape'){closeSearch();input.blur();}
+  };
 }
 
 async function loadWine(){
@@ -119,21 +231,25 @@ async function loadWine(){
   if(!hk||!sz){document.getElementById('wineLoading').innerHTML='数据结构异常';return;}
   let hkRows=normalizeRows(hk.rows,hk.columns);
   let szRows=normalizeRows(sz.rows,sz.columns);
+
+  allWineData=[];
+  hkRows.forEach(r=>allWineData.push({row:r,warehouse:'🇭🇰 香港'}));
+  szRows.forEach(r=>allWineData.push({row:r,warehouse:'🏢 深圳'}));
+
   document.getElementById('wineLoading').style.display='none';
   const c=document.getElementById('wineContent');c.style.display='grid';
   const hkBadges=(hk.badges||[]).map((b,i)=>'<span class="badge '+['red','blue','green','amber'][i%4]+'">'+b+'</span>').join('');
   const szBadges=(sz.badges||[]).map((b,i)=>'<span class="badge '+['red','blue','green','amber'][i%4]+'">'+b+'</span>').join('');
   let h=`<div class="wine-card"><div class="wine-card-header hk">${hk.title}<span class="count">${hk.summary} · <span class="badge red">${hk.count}</span></span></div><div class="wine-summary">${hkBadges}</div><table class="wine-table"><thead><tr>`;
-  hk.columns.forEach(c=>h+=`<th>${c}</th>`);
-  h+='</tr></thead><tbody>';
+  hk.columns.forEach(c=>h+=`<th>${c}</th>`);h+='</tr></thead><tbody>';
   hkRows.forEach(r=>{h+='<tr>';r.forEach((v,i)=>h+=`<td${i===0?' style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600"':v.includes('¥')||v.includes('HK$')?' class="price"':''}>${v}</td>`);h+='</tr>'});
   h+='</tbody></table></div>';
   let s=`<div class="wine-card"><div class="wine-card-header sz">${sz.title}<span class="count">${sz.summary} · <span class="badge blue">${sz.count}</span></span></div><div class="wine-summary">${szBadges}</div><table class="wine-table"><thead><tr>`;
-  sz.columns.forEach(c=>s+=`<th>${c}</th>`);
-  s+='</tr></thead><tbody>';
+  sz.columns.forEach(c=>s+=`<th>${c}</th>`);s+='</tr></thead><tbody>';
   szRows.forEach(r=>{s+='<tr>';r.forEach((v,i)=>s+=`<td${i===0?' style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600"':v.includes('¥')||v.includes('HK$')?' class="price"':''}>${v}</td>`);s+='</tr>'});
   s+='</tbody></table></div>';
   c.innerHTML=h+s;
+  initSearch();
 }
 loadWine();
 setInterval(loadWine,300000);
