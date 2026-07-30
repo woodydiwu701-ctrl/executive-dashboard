@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高管事务支持 | 共享看板</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f0f2f5; color: #1a1a2e; min-height: 100vh;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff; padding: 28px 40px; position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -50px; right: -50px;
+    width: 200px; height: 200px; background: rgba(255,255,255,0.03); border-radius: 50%;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .sub { font-size: 14px; opacity: 0.7; margin-top: 6px; }
+  .header .meta { font-size: 12px; opacity: 0.5; margin-top: 10px; display: flex; gap: 20px; flex-wrap: wrap; }
+  .header .meta span { display: flex; align-items: center; gap: 4px; }
+  
+  .stats-bar {
+    display: flex; gap: 16px; padding: 20px 40px; background: #fff;
+    border-bottom: 1px solid #e8eaed; flex-wrap: wrap;
+  }
+  .stat-card {
+    flex: 1; min-width: 160px; text-align: center; padding: 18px 12px;
+    background: #f8f9fb; border-radius: 12px; border: 1px solid #eef0f4;
+  }
+  .stat-card .num { font-size: 32px; font-weight: 800; color: #0f3460; line-height: 1.1; }
+  .stat-card .label { font-size: 13px; color: #6b7280; margin-top: 4px; }
+  .stat-card .sub { font-size: 11px; color: #9ca3af; }
+  
+  .main { padding: 24px 40px; }
+  .section-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; color: #1a1a2e; }
+  
+  .modules { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+  .module-card { 
+    background: #fff; border-radius: 14px; padding: 24px; border: 1px solid #eef0f4;
+    transition: transform 0.15s, box-shadow 0.15s; cursor: default;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .module-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+  .module-card .icon { font-size: 28px; }
+  .module-card h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; }
+  .module-card p { font-size: 13px; color: #6b7280; line-height: 1.6; flex: 1; }
+  .module-card .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .module-card .tag { 
+    font-size: 11px; padding: 3px 9px; background: #eff6ff; color: #2563eb; 
+    border-radius: 20px; font-weight: 500;
+  }
+  .module-card a { 
+    display: inline-block; margin-top: 4px; font-size: 13px; color: #2563eb; 
+    text-decoration: none; font-weight: 600;
+  }
+  .module-card a:hover { text-decoration: underline; }
+  
+  .wine-section { margin-top: 32px; }
+  .wine-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 800px) { .wine-grid { grid-template-columns: 1fr; } }
+  
+  .wine-card {
+    background: #fff; border-radius: 14px; border: 1px solid #eef0f4; overflow: hidden;
+  }
+  .wine-card-header { 
+    padding: 16px 20px; font-weight: 700; font-size: 15px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .wine-card-header.hk { background: #fff7ed; color: #c2410c; }
+  .wine-card-header.sz { background: #eff6ff; color: #1d4ed8; }
+  .wine-card-header .count { font-size: 13px; opacity: 0.7; }
+  
+  .wine-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .wine-table th { 
+    background: #f8f9fb; padding: 10px 12px; text-align: left; font-weight: 600;
+    color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+    border-bottom: 2px solid #eef0f4;
+  }
+  .wine-table td { padding: 8px 12px; border-bottom: 1px solid #f3f4f6; color: #374151; line-height: 1.4; }
+  .wine-table tr:hover td { background: #fafbfc; }
+  .wine-table .name { font-weight: 600; color: #1a1a2e; }
+  .wine-table .price { font-weight: 600; color: #059669; white-space: nowrap; }
+  .wine-table .hl { color: #dc2626; font-weight: 700; }
+  
+  .footer { 
+    padding: 16px 40px; font-size: 12px; color: #9ca3af; text-align: center;
+    border-top: 1px solid #eef0f4; margin-top: 32px;
+  }
+  .wine-summary { 
+    padding: 10px 20px 16px; font-size: 12px; color: #6b7280; display: flex; gap: 16px; flex-wrap: wrap;
+  }
+  .wine-summary span { display: inline-flex; align-items: center; gap: 4px; }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+  .badge.red { background: #fef2f2; color: #dc2626; }
+  .badge.blue { background: #eff6ff; color: #2563eb; }
+  .badge.green { background: #f0fdf4; color: #16a34a; }
+  .badge.amber { background: #fffbeb; color: #d97706; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>高管事务支持 | 共享看板</h1>
+  <div class="sub">团队协作平台 — 信息沉淀中心</div>
+  <div class="meta">
+    <span>🕐 更新时间：<span id="updateTime"></span></span>
+    <span>☁️ 腾讯文档云端同步 ✓</span>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-card">
+    <div class="num">450+</div>
+    <div class="label">酒水库存总量</div>
+    <div class="sub">深圳 · 香港</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">5</div>
+    <div class="label">协作管理模块</div>
+    <div class="sub">差旅 · 酒水 · 物资 · 礼品 · 客户</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">2</div>
+    <div class="label">仓库</div>
+    <div class="sub">深圳（科兴/滨海）· 香港（HKO）</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">实时</div>
+    <div class="label">腾讯文档在线协同</div>
+    <div class="sub">数据源同步更新</div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="section-title">📋 功能模块入口</div>
+  <div class="modules">
+    <div class="module-card">
+      <div class="icon">✈️</div>
+      <h3>差旅出行</h3>
+      <p>管理老板的出行计划与差旅安排，记录航班/高铁、酒店预订、接送车辆及出行备注，确保行程无缝衔接。</p>
+      <div class="tags"><span class="tag">航班/高铁</span><span class="tag">酒店预订</span><span class="tag">接送安排</span><span class="tag">出行备注</span></div>
+      <a href="https://docs.qq.com/sheet/DU2dzUGFNR0VhT1hN" target="_blank">→ 查看差旅安排</a>
+    </div>
+    
+    <div class="module-card">
+      <div class="icon">🍷</div>
+      <h3>酒水库存管理</h3>
+      <p>整合深圳+香港两大仓库酒水数据，支持实时出入库登记、每月行情价格更新，含波尔多、勃艮第、DRC、茅台等。</p>
+      <div class="tags"><span class="tag">出入库登记</span><span class="tag">行情价格</span><span class="tag">深圳仓库</span><span class="tag">香港仓库</span></div>
+      <a href="https://docs.qq.com/sheet/DU05MeXZDSGdST1pV" target="_blank">→ 查看酒水库存</a>
+    </div>
+    
+    <div class="module-card">
+      <div class="icon">📦</div>
+      <h3>仓库物资管理</h3>
+      <p>管理办公室日常物资库存，记录物品名称、数量、位置及低库存预警，统一领用登记。</p>
+      <div class="tags"><span class="tag">库存数量</span><span class="tag">存放位置</span><span class="tag">低库存预警</span><span class="tag">出入库</span></div>
+      <a href="https://docs.qq.com/sheet/DU1hUR3dNVEt1WE9T" target="_blank">→ 查看仓库物资</a>
+    </div>
+    
+    <div class="module-card">
+      <div class="icon">🎁</div>
+      <h3>礼品管理</h3>
+      <p>统一管理礼品库存、采购价与市场价、适用场合及出库记录，商务拜访与节日馈赠有据可查。</p>
+      <div class="tags"><span class="tag">库存管理</span><span class="tag">采购市价</span><span class="tag">适用场合</span></div>
+      <a href="https://docs.qq.com/sheet/DU2JiQWdOeEt0YVp6" target="_blank">→ 查看礼品管理</a>
+    </div>
+    
+    <div class="module-card">
+      <div class="icon">🤝</div>
+      <h3>客户关系维护</h3>
+      <p>记录重要客户信息、偏好禁忌、跟进节点，支持提醒维护安排，助力关系管理有序推进。</p>
+      <div class="tags"><span class="tag">客户档案</span><span class="tag">偏好禁忌</span><span class="tag">跟进提醒</span></div>
+      <a href="https://docs.qq.com/sheet/DU2VBRkRvenZLeGdo" target="_blank">→ 查看客户档案</a>
+    </div>
+    
+    <div class="module-card">
+      <div class="icon">📁</div>
+      <h3>腾讯文档文件夹</h3>
+      <p>所有模块关联的腾讯文档云端存储位置，可在此管理分享权限、邀请团队成员协同编辑。</p>
+      <div class="tags"><span class="tag">云端存储</span><span class="tag">权限管理</span><span class="tag">团队协同</span></div>
+      <a href="https://docs.qq.com/desktop/mydoc/folder/SmLyTSIxEpzs" target="_blank">→ 打开文件夹</a>
+    </div>
+  </div>
+  
+  <div class="wine-section">
+    <div class="section-title">🍷 酒水库存明细（按仓库分区）</div>
+    <div class="wine-grid">
+      
+      <!-- 香港仓库 -->
+      <div class="wine-card">
+        <div class="wine-card-header hk">
+          🇭🇰 香港仓库（HKO-3728）
+          <span class="count">贵重 41 支 · 家庭用 14 支 · 合计 <span class="badge red">55 支</span></span>
+        </div>
+        <div class="wine-summary">
+          <span class="badge red">DRC 康帝系列</span>
+          <span class="badge blue">Roumier 卢米耶</span>
+          <span class="badge green">武戈伯爵</span>
+          <span class="badge amber">波尔多一级庄</span>
+        </div>
+        <table class="wine-table">
+          <thead><tr><th>酒款</th><th>年份</th><th>库存</th><th>行情价</th><th>标签</th></tr></thead>
+          <tbody>
+<tr><td class="name">Roumier Charmes Chambertin 卢米耶-香牡香贝丹</td><td>2006</td><td>4支</td><td class="price">HK$13,500</td><td>常用</td></tr>
+<tr><td class="name">Roumier Bonnes Mares 卢米耶-波内玛尔</td><td>2008</td><td>3支</td><td class="price">HK$16,000</td><td>常用</td></tr>
+<tr><td class="name">Roumier Rouchettes 卢米耶-卢索香贝丹</td><td>2014</td><td>3支</td><td class="price">HK$11,500</td><td>常用</td></tr>
+<tr><td class="name">Comte de Vogue Bonnes Mares 武戈伯爵-波内玛尔</td><td>2008</td><td>3支</td><td class="price">HK$6,800</td><td>常用</td></tr>
+<tr><td class="name">Comte de Vogue Musigny 武戈伯爵-慕西尼老藤</td><td>2007</td><td>3支</td><td class="price">HK$8,500</td><td>常用</td></tr>
+<tr><td class="name"><span class="hl">DRC La Tache 拉塔希特级园</span></td><td>1996</td><td>2支</td><td class="price">¥55,159</td><td>赠送</td></tr>
+<tr><td class="name"><span class="hl">DRC La Tache 拉塔希特级园</span></td><td>2013</td><td>2支</td><td class="price">¥44,828</td><td></td></tr>
+<tr><td class="name"><span class="hl">DRC La Tache 拉塔希特级园</span></td><td>2017</td><td>3支</td><td class="price">¥45,364</td><td></td></tr>
+<tr><td class="name"><span class="hl">DRC Richebourg 李奇堡特级园</span></td><td>2013/17</td><td>3支</td><td class="price">¥36,385</td><td></td></tr>
+<tr><td class="name"><span class="hl">DRC Romanee-Conti 康帝特级园</span></td><td>2013/17</td><td>2支</td><td class="price">¥163,585</td><td>顶级</td></tr>
+<tr><td class="name"><span class="hl">DRC RSV 罗曼尼圣维旺</span></td><td>2017</td><td>2支</td><td class="price">¥29,591</td><td></td></tr>
+<tr><td class="name">DRC La Tache 1988/2004</td><td>1988/04</td><td>2支</td><td>—</td><td></td></tr>
+<tr><td class="name">Mazis-Chambertin 雷莫父子</td><td>2007</td><td>1支</td><td class="price">¥4,522</td><td></td></tr>
+<tr><td class="name">Chateau Haut Brion 奥比昂</td><td>1993</td><td>1支</td><td class="price">¥4,850</td><td>常用</td></tr>
+<tr><td class="name">Lafite 拉菲 (Colin赠送)</td><td>2010</td><td>1支</td><td>—</td><td></td></tr>
+<tr><td class="name">Cos d'Estournel 爱士图尔</td><td>2016</td><td>3支</td><td class="price">¥1,300</td><td></td></tr>
+<tr><td class="name">Georg Muller Riesling 雷司令</td><td>2019</td><td>2支</td><td class="price">¥780</td><td></td></tr>
+<tr><td class="name">Chevalier Montrachet / Leroy / 拉菲家庭用</td><td>1997-15</td><td>5支</td><td>—</td><td>家庭用</td></tr>
+<tr><td class="name">香槟 Sotheby + 凯歌 + 獭祭</td><td>—</td><td>3支</td><td>—</td><td></td></tr>
+<tr><td class="name">精品茅台 2022 + MACALLAN 收藏</td><td>2022</td><td>4支</td><td class="price">¥6,000/支</td><td>收藏</td></tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- 深圳仓库 -->
+      <div class="wine-card">
+        <div class="wine-card-header sz">
+          🏢 深圳仓库（科兴 / 滨海）
+          <span class="count">红白酒 181 · 茅台 163 · 洋酒 52 · 合计 <span class="badge blue">约 396 支</span></span>
+        </div>
+        <div class="wine-summary">
+          <span class="badge blue">波尔多五大名庄</span>
+          <span class="badge red">DRC 依瑟索/圣维旺</span>
+          <span class="badge green">勒弗莱白葡萄酒</span>
+          <span class="badge amber">飞天茅台 70+</span>
+        </div>
+        <table class="wine-table">
+          <thead><tr><th>酒款</th><th>库存</th><th>行情价</th><th>位置</th></tr></thead>
+          <tbody>
+<tr><td class="name"><span class="hl">Lafite 拉菲 100分</span> 2003/09/16/86</td><td>60支</td><td class="price">¥10,900-26,900</td><td>科兴4号</td></tr>
+<tr><td class="name">Lafite 拉菲 1999/1982/1975</td><td>16支</td><td class="price">¥13,900-37,900</td><td>科兴+滨海</td></tr>
+<tr><td class="name"><span class="hl">Chateau Latour 拉图 100分</span> 1996/03/09</td><td>11支</td><td class="price">¥8,450-15,480</td><td>科兴4号</td></tr>
+<tr><td class="name"><span class="hl">Chateau Haut Brion 奥比昂</span> 1989/10/16</td><td>7支</td><td class="price">¥10,407-21,800</td><td>科兴4号</td></tr>
+<tr><td class="name"><span class="hl">Mouton 木桐 100分</span> 1986/00/13/16</td><td>9支</td><td class="price">¥9,793+</td><td>科兴4号</td></tr>
+<tr><td class="name">Chateau Margaux 玛歌 100分</td><td>2支</td><td class="price">¥8,300-12,943</td><td>科兴4号</td></tr>
+<tr><td class="name"><span class="hl">Chateau Petrus 帕图斯</span> 1989-2009</td><td>9支</td><td class="price">¥36,800-71,300</td><td>科兴2号+4号</td></tr>
+<tr><td class="name"><span class="hl">Chateau le Pin 里鹏 100分</span> 2009</td><td>1支</td><td class="price">¥549,450</td><td>科兴4号</td></tr>
+<tr><td class="name">Pichon Baron 碧尚男爵 2011</td><td>23支</td><td class="price">¥1,470-2,000</td><td>科兴3号</td></tr>
+<tr><td class="name"><span class="hl">DRC Echezeaux</span> 依瑟索 06/10/12</td><td>3支</td><td class="price">¥40,000-44,700</td><td>科兴1号</td></tr>
+<tr><td class="name"><span class="hl">DRC St Vivant</span> 圣维旺 2006</td><td>1支</td><td class="price">¥49,000</td><td>科兴1号</td></tr>
+<tr><td class="name">Comte Liger-Belair Echezeaux 里贝伯爵</td><td>2支</td><td class="price">¥29,000-43,000</td><td>科兴1号</td></tr>
+<tr><td class="name">Armand Rousseau Chambertin Beze 卢梭-香贝丹</td><td>2支</td><td class="price">¥36,000-55,000</td><td>科兴1号</td></tr>
+<tr><td class="name"><span class="hl">Leflaive Chevalier-Montrachet</span> 骑士蒙哈榭</td><td>13支</td><td class="price">¥21,531-44,677</td><td>科兴1号</td></tr>
+<tr><td class="name"><span class="hl">Leflaive Bienvenues-Batard</span> 巴塔蒙哈榭</td><td>13支</td><td class="price">¥16,068-16,119</td><td>科兴1号</td></tr>
+<tr><td class="name">Batard-Montrachet 勒弗莱巴塔蒙哈榭 1994</td><td>1支</td><td class="price">¥20,000-24,835</td><td>科兴1号</td></tr>
+<tr><td class="name"><span class="hl">飞天茅台</span> 各年份（2014-2021）</td><td>70+支</td><td class="price">¥3,600-3,990</td><td>科兴+滨海</td></tr>
+<tr><td class="name">精品茅台/主题茅台/蛇兔虎年</td><td>50+支</td><td>—</td><td>科兴+滨海</td></tr>
+<tr><td class="name">Dom Perignon 唐培里侬</td><td>12支</td><td class="price">¥2,049</td><td>科兴3号</td></tr>
+<tr><td class="name">黑桃A香槟</td><td>5支</td><td class="price">¥2,799</td><td>科兴+滨海</td></tr>
+<tr><td class="name">库克庄园香槟 2000</td><td>6支</td><td class="price">¥6,459</td><td>滨海</td></tr>
+<tr><td class="name">Yamazaki 山崎18年限量版</td><td>3支</td><td class="price">¥17,408</td><td>科兴+滨海</td></tr>
+<tr><td class="name">人头马路易十三</td><td>1支</td><td class="price">¥23,880</td><td>科兴</td></tr>
+<tr><td class="name">十四代 / 新政清酒系列</td><td>4支</td><td class="price">¥1,280-3,400</td><td>滨海+科兴</td></tr>
+<tr><td class="name">金沙古酱/TIMi天美/六大家/黄酒等</td><td>57支</td><td>—</td><td>科兴+滨海</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  ⚡ 数据来源：腾讯文档在线表格 · 实时同步 · 高管事务支持团队共享看板
+</div>
+
+<script>
+  document.getElementById('updateTime').textContent = new Date().toLocaleString('zh-CN', {
+    year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'
+  });
+</script>
+</body>
+</html>
