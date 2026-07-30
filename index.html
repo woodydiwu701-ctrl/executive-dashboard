@@ -7,68 +7,60 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#f0f2f5;color:#1a1a2e;min-height:100vh}
-.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#fff;padding:28px 40px}
+.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#fff;padding:24px 40px}
 .header h1{font-size:26px;font-weight:700}
 .header .sub{font-size:14px;opacity:.7;margin-top:6px}
-.header .meta{font-size:12px;opacity:.5;margin-top:10px;display:flex;gap:20px;flex-wrap:wrap}
-.stats-bar{display:flex;gap:16px;padding:20px 40px;background:#fff;border-bottom:1px solid #e8eaed;flex-wrap:wrap}
-.stat-card{flex:1;min-width:140px;text-align:center;padding:18px 12px;background:#f8f9fb;border-radius:12px;border:1px solid #eef0f4}
-.stat-card .num{font-size:32px;font-weight:800;color:#0f3460;line-height:1.1}
-.stat-card .label{font-size:13px;color:#6b7280;margin-top:4px}
+.header .meta{font-size:12px;opacity:.5;margin-top:8px;display:flex;gap:20px;flex-wrap:wrap}
+.stats-bar{display:flex;gap:14px;padding:16px 40px;background:#fff;border-bottom:1px solid #e8eaed;flex-wrap:wrap}
+.stat-card{flex:1;min-width:130px;text-align:center;padding:16px 10px;background:#f8f9fb;border-radius:12px;border:1px solid #eef0f4}
+.stat-card .num{font-size:30px;font-weight:800;color:#0f3460;line-height:1.1}
+.stat-card .label{font-size:12px;color:#6b7280;margin-top:4px}
 .stat-card .sub{font-size:11px;color:#9ca3af;margin-top:2px}
-.search-bar{padding:16px 40px;background:#fff;border-bottom:1px solid #e8eaed;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.search-bar .search-wrap{flex:1;min-width:300px;position:relative}
-.search-bar input{width:100%;padding:10px 14px 10px 38px;border:2px solid #e0e4ea;border-radius:10px;font-size:14px;outline:none;transition:border-color .2s}
+.search-bar{padding:12px 40px;background:#fff;border-bottom:1px solid #e8eaed;display:flex;align-items:center;gap:12px}
+.search-bar .search-wrap{flex:1;min-width:260px;position:relative}
+.search-bar input{width:100%;padding:9px 12px 9px 36px;border:2px solid #e0e4ea;border-radius:10px;font-size:14px;outline:none;transition:border-color .2s}
 .search-bar input:focus{border-color:#2563eb}
-.search-bar .search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;color:#9ca3af;pointer-events:none}
+.search-bar .search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:15px;color:#9ca3af;pointer-events:none}
 .search-bar .tip{font-size:12px;color:#9ca3af;white-space:nowrap}
-.search-results{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid #e0e4ea;border-radius:0 0 10px 10px;max-height:300px;overflow-y:auto;z-index:100;box-shadow:0 8px 20px rgba(0,0,0,.12);margin-top:2px}
+.search-results{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid #e0e4ea;border-radius:0 0 10px 10px;max-height:320px;overflow-y:auto;z-index:100;box-shadow:0 8px 20px rgba(0,0,0,.12);margin-top:2px}
 .search-results.show{display:block}
 .search-results .item{padding:10px 14px;border-bottom:1px solid #f3f4f6;cursor:pointer;font-size:13px;transition:background .15s}
-.search-results .item:hover,.search-results .item.active{background:#eff6ff}
+.search-results .item:hover{background:#eff6ff}
 .search-results .item .name{font-weight:600;color:#1a1a2e}
 .search-results .item .meta{font-size:11px;color:#6b7280;margin-top:2px}
 .search-results .item .stock{font-weight:600;color:#059669}
-.search-results .item .location{color:#2563eb;font-weight:500}
+.search-results .item .location{color:#2563eb}
 .search-results .empty{padding:16px;text-align:center;color:#9ca3af;font-size:13px}
-.search-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.2);z-index:99}
+.search-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.15);z-index:99}
 .search-overlay.show{display:block}
-.main{padding:24px 40px;max-width:1400px}
-.section-title{font-size:18px;font-weight:700;margin-bottom:16px;color:#1a1a2e;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.section-title .result-count{font-size:13px;font-weight:400;color:#2563eb;background:#eff6ff;padding:2px 10px;border-radius:12px}
-.modules{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
-.module-card{background:#fff;border-radius:14px;padding:22px;border:1px solid #eef0f4;transition:transform .15s,box-shadow .15s;display:flex;flex-direction:column;gap:8px}
+.main{padding:20px 40px;max-width:1400px}
+.section-title{font-size:18px;font-weight:700;margin-bottom:14px;color:#1a1a2e}
+.modules{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.module-card{background:#fff;border-radius:14px;padding:22px;border:1px solid #eef0f4;transition:transform .15s;display:flex;flex-direction:column;gap:8px}
 .module-card:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.08)}
-.module-card .icon{font-size:28px}
-.module-card h3{font-size:16px;font-weight:700;color:#1a1a2e}
+.module-card .icon{font-size:26px}
+.module-card h3{font-size:16px;font-weight:700}
 .module-card p{font-size:13px;color:#6b7280;line-height:1.6;flex:1}
-.module-card .tags{display:flex;gap:6px;flex-wrap:wrap}
-.module-card .tag{font-size:11px;padding:3px 9px;background:#eff6ff;color:#2563eb;border-radius:20px;font-weight:500}
+.module-card .tags{display:flex;gap:5px;flex-wrap:wrap}
+.module-card .tag{font-size:11px;padding:3px 8px;background:#eff6ff;color:#2563eb;border-radius:20px;font-weight:500}
 .module-card a{font-size:13px;color:#2563eb;text-decoration:none;font-weight:600}
 .module-card a:hover{text-decoration:underline}
-.wine-section{margin-top:32px}
-.wine-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:900px){.wine-grid{grid-template-columns:1fr}.stats-bar,.search-bar,.main{padding-left:20px;padding-right:20px}.header{padding:20px}.search-bar .search-wrap{min-width:200px}.modules{grid-template-columns:1fr}}
-.wine-card{background:#fff;border-radius:14px;border:1px solid #eef0f4;overflow:hidden}
-.wine-card-header{padding:14px 18px 10px;font-weight:700;font-size:15px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.wine-card-header.hk{background:#fff7ed;color:#c2410c}
-.wine-card-header.sz{background:#eff6ff;color:#1d4ed8}
-.wine-card-header .count{font-size:12px;opacity:.8}
-.wine-table{width:100%;border-collapse:collapse;font-size:12px}
-.wine-table th{background:#f8f9fb;padding:8px 10px;text-align:left;font-weight:600;color:#6b7280;font-size:11px;border-bottom:2px solid #eef0f4}
-.wine-table td{padding:6px 10px;border-bottom:1px solid #f3f4f6;color:#374151;line-height:1.4}
+.wine-section{margin-top:28px}
+.wine-cat{margin-bottom:20px}
+.wine-cat-title{font-size:14px;font-weight:700;padding:8px 14px;background:#f8f9fb;border-radius:8px 8px 0 0;border:1px solid #eef0f4;border-bottom:none;color:#374151}
+.wine-table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid #eef0f4;border-radius:0 0 8px 8px;overflow:hidden}
+.wine-table th{background:#f3f5f8;padding:10px 12px;text-align:left;font-weight:600;color:#6b7280;font-size:12px;border-bottom:2px solid #eef0f4;white-space:nowrap}
+.wine-table td{padding:9px 12px;border-bottom:1px solid #f3f4f6;color:#374151;line-height:1.5;word-break:break-word}
 .wine-table tr:hover td{background:#fafbfc}
 .wine-table tr.highlight td{background:#fef3c7!important}
 .wine-table .price{font-weight:600;color:#059669;white-space:nowrap}
-.wine-summary{padding:4px 18px 10px;font-size:12px;display:flex;gap:6px;flex-wrap:wrap}
-.badge{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;white-space:nowrap}
-.badge.red{background:#fef2f2;color:#dc2626}
-.badge.blue{background:#eff6ff;color:#2563eb}
-.badge.green{background:#f0fdf4;color:#16a34a}
-.badge.amber{background:#fffbeb;color:#d97706}
-.footer{padding:16px 40px;font-size:12px;color:#9ca3af;text-align:center;border-top:1px solid #eef0f4;margin-top:32px}
+.wine-table .name{font-weight:500;min-width:200px}
+.badge{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600}
+.badge.red{background:#fef2f2;color:#dc2626}.badge.blue{background:#eff6ff;color:#2563eb}
+.badge.green{background:#f0fdf4;color:#16a34a}.badge.amber{background:#fffbeb;color:#d97706}
+.footer{padding:14px 40px;font-size:12px;color:#9ca3af;text-align:center;border-top:1px solid #eef0f4;margin-top:28px}
 .loading{text-align:center;padding:40px;color:#9ca3af;font-size:14px}
-.price-note{font-size:11px;color:#9ca3af;margin-top:4px}
+@media(max-width:900px){.wine-grid,.main,.stats-bar,.search-bar{padding-left:16px;padding-right:16px}.header{padding:18px 16px}.modules{grid-template-columns:1fr}.search-bar{flex-direction:column;align-items:stretch}.search-bar .tip{text-align:center}}
 </style>
 </head>
 <body>
@@ -92,10 +84,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 <div class="search-bar">
 <div class="search-wrap">
 <span class="search-icon">🔍</span>
-<input type="text" id="searchInput" placeholder="搜索酒水名称（如：茅台、DRC、拉菲、帕图斯...）" autocomplete="off">
+<input type="text" id="searchInput" placeholder="搜索酒水（如：茅台、DRC、拉菲、帕图斯...）" autocomplete="off">
 <div class="search-results" id="searchResults"></div>
 </div>
-<span class="tip">输入酒名或关键词，快速定位库存</span>
+<span class="tip">输入酒名快速定位库存</span>
 </div>
 <div class="search-overlay" id="searchOverlay"></div>
 
@@ -103,104 +95,87 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 
 <div class="section-title">📋 功能模块入口</div>
 <div class="modules">
-<div class="module-card"><div class="icon">🍷</div><h3>酒水库存管理</h3><p>整合深圳+香港两大仓库酒水数据，支持实时出入库登记、每月行情价格更新，含波尔多、勃艮第、DRC、茅台等。</p><div class="tags"><span class="tag">出入库登记</span><span class="tag">行情价格</span><span class="tag">深圳仓库</span><span class="tag">香港仓库</span></div><a href="https://docs.qq.com/sheet/DU05MeXZDSGdST1pV" target="_blank">→ 查看酒水库存</a></div>
-<div class="module-card"><div class="icon">📦</div><h3>仓库物资管理</h3><p>管理办公室日常物资库存，记录物品名称、数量、位置及低库存预警，统一领用登记。</p><div class="tags"><span class="tag">库存数量</span><span class="tag">存放位置</span><span class="tag">低库存预警</span><span class="tag">出入库</span></div><a href="https://docs.qq.com/sheet/DU1hUR3dNVEt1WE9T" target="_blank">→ 查看仓库物资</a></div>
-<div class="module-card"><div class="icon">🎁</div><h3>礼品管理</h3><p>统一管理礼品库存、采购价与市场价、适用场合及出库记录，商务拜访与节日馈赠有据可查。</p><div class="tags"><span class="tag">库存管理</span><span class="tag">采购市价</span><span class="tag">适用场合</span></div><a href="https://docs.qq.com/sheet/DU2JiQWdOeEt0YVp6" target="_blank">→ 查看礼品管理</a></div>
-<div class="module-card"><div class="icon">✈️</div><h3>差旅出行</h3><p>管理老板的出行计划与差旅安排，记录航班/高铁、酒店预订、接送车辆及出行备注，确保行程无缝衔接。</p><div class="tags"><span class="tag">航班/高铁</span><span class="tag">酒店预订</span><span class="tag">接送安排</span><span class="tag">出行备注</span></div><a href="https://docs.qq.com/sheet/DU2dzUGFNR0VhT1hN" target="_blank">→ 查看差旅安排</a></div>
-<div class="module-card"><div class="icon">🤝</div><h3>客户关系维护</h3><p>记录重要客户信息、偏好禁忌、跟进节点，支持提醒维护安排，助力关系管理有序推进。</p><div class="tags"><span class="tag">客户档案</span><span class="tag">偏好禁忌</span><span class="tag">跟进提醒</span></div><a href="https://docs.qq.com/sheet/DU2VBRkRvenZLeGdo" target="_blank">→ 查看客户档案</a></div>
+<div class="module-card"><div class="icon">🍷</div><h3>酒水库存管理</h3><p>整合深圳+香港两大仓库酒水数据，支持实时出入库登记、每月行情价格更新。</p><div class="tags"><span class="tag">出入库登记</span><span class="tag">行情价格</span><span class="tag">深圳仓库</span><span class="tag">香港仓库</span></div><a href="https://docs.qq.com/sheet/DU05MeXZDSGdST1pV" target="_blank">→ 查看酒水库存</a></div>
+<div class="module-card"><div class="icon">📦</div><h3>仓库物资管理</h3><p>管理办公室日常物资库存，记录物品名称、数量、位置及低库存预警。</p><div class="tags"><span class="tag">库存数量</span><span class="tag">存放位置</span><span class="tag">低库存预警</span></div><a href="https://docs.qq.com/sheet/DU1hUR3dNVEt1WE9T" target="_blank">→ 查看仓库物资</a></div>
+<div class="module-card"><div class="icon">🎁</div><h3>礼品管理</h3><p>统一管理礼品库存、采购价与市场价、适用场合及出库记录。</p><div class="tags"><span class="tag">库存管理</span><span class="tag">采购市价</span><span class="tag">适用场合</span></div><a href="https://docs.qq.com/sheet/DU2JiQWdOeEt0YVp6" target="_blank">→ 查看礼品管理</a></div>
+<div class="module-card"><div class="icon">✈️</div><h3>差旅出行</h3><p>管理老板的出行计划与差旅安排，记录航班/高铁、酒店预订、接送车辆及出行备注。</p><div class="tags"><span class="tag">航班/高铁</span><span class="tag">酒店预订</span><span class="tag">接送安排</span></div><a href="https://docs.qq.com/sheet/DU2dzUGFNR0VhT1hN" target="_blank">→ 查看差旅安排</a></div>
+<div class="module-card"><div class="icon">🤝</div><h3>客户关系维护</h3><p>记录重要客户信息、偏好禁忌、跟进节点，支持提醒维护安排。</p><div class="tags"><span class="tag">客户档案</span><span class="tag">偏好禁忌</span><span class="tag">跟进提醒</span></div><a href="https://docs.qq.com/sheet/DU2VBRkRvenZLeGdo" target="_blank">→ 查看客户档案</a></div>
 </div>
 
 <div class="wine-section">
-<div class="section-title">🍷 酒水库存明细（按仓库分区）</div>
+<div class="section-title">🍷 酒水库存明细（按品类分区）</div>
 <div class="loading" id="wineLoading">正在加载酒水库存数据...</div>
-<div class="wine-grid" id="wineContent" style="display:none"></div>
+<div id="wineContent" style="display:none"></div>
 </div>
 
 </div>
 
-<div class="footer">⚡ 数据来源：腾讯文档在线表格 · 自动同步 · 行情价每月 1 日更新（参考 Wine-Searcher / Liv-ex）</div>
+<div class="footer">⚡ 数据来源：腾讯文档在线表格 · 行情价每月1日更新（参考 Wine-Searcher / Liv-ex）· 高管事务支持团队共享看板</div>
 
 <script>
-let allWineData = [];
+const ICONS = {
+  '红葡萄酒·勃艮第':'🍷','红葡萄酒·波尔多':'🍷','红葡萄酒':'🍷',
+  '白葡萄酒':'🥂','香槟':'🍾','威士忌':'🥃','白兰地':'🥃',
+  '清酒':'🍶','白酒':'🍶','其他':'📦'
+};
+const ORDER = ['红葡萄酒·勃艮第','红葡萄酒·波尔多','白葡萄酒','香槟','威士忌','白兰地','清酒','白酒','其他'];
 
-function normalizeRows(rows,cols){
-  if(!rows||!rows.length)return[];
-  if(Array.isArray(rows[0]))return rows;
-  return rows.map(r=>{
-    if(Array.isArray(r))return r;
-    if(typeof r==='object'){
-      const a=[];
-      for(let i=0;i<cols.length;i++)a.push(String(r[Object.keys(r)[i]]||'—'));
-      return a;
+let allWine = [];
+
+function renderTable(section){
+  let h = `<div class="wine-cat"><div class="wine-cat-title">${ICONS[section.title]||'📋'} ${section.title}（${section.rows.length} 款）</div><table class="wine-table"><thead><tr>`;
+  section.columns.forEach(c=>h+=`<th>${c}</th>`);
+  h+='</tr></thead><tbody>';
+  section.rows.forEach(r=>{
+    h+='<tr>';
+    if(Array.isArray(r)){
+      r.forEach((v,i)=>{
+        let cls='';
+        if(i===0)cls='class="name"';
+        else if(typeof v==='string'&&(v.includes('¥')||v.includes('HK$')||v.includes('元')))cls='class="price"';
+        h+=`<td ${cls}>${v||'—'}</td>`;
+      });
+    }else if(typeof r==='object'){
+      section.columns.forEach(c=>{h+=`<td>${r[c]||r[Object.keys(r)[0]]||'—'}</td>`});
     }
-    return [];
+    h+='</tr>';
   });
+  h+='</tbody></table></div>';
+  return h;
 }
 
-function searchWine(query){
-  if(!query.trim()){
+function search(q){
+  if(!q.trim()){
     document.getElementById('searchResults').classList.remove('show');
     document.getElementById('searchOverlay').classList.remove('show');
-    document.querySelectorAll('.highlight').forEach(el=>el.classList.remove('highlight'));
-    document.getElementById('wineContent').scrollIntoView({behavior:'smooth'});
+    document.querySelectorAll('.highlight').forEach(e=>e.classList.remove('highlight'));
     return;
   }
-  const q=query.toLowerCase();
-  const results=[];
-  allWineData.forEach(w=>{
-    const name=(w.row[0]||'').toLowerCase();
-    if(name.includes(q)){
-      results.push({...w,score:name.indexOf(q)===0?2:1});
-    }
+  const results = allWine.filter(w=>{
+    const name = (Array.isArray(w.row)?w.row[0]:w.row.name||'').toLowerCase();
+    return name.includes(q.toLowerCase());
   });
-  results.sort((a,b)=>b.score-a.score);
-  renderResults(results);
-}
-
-function renderResults(results){
-  const container=document.getElementById('searchResults');
-  const overlay=document.getElementById('searchOverlay');
+  const container = document.getElementById('searchResults');
   if(!results.length){
-    container.innerHTML='<div class="empty">未找到匹配的酒款，试试其他关键词</div>';
+    container.innerHTML='<div class="empty">未找到匹配酒款</div>';
   }else{
-    let h='';
-    results.forEach((r,i)=>{
-      h+=`<div class="item" data-idx="${i}" onclick="selectResult(${i})">
-        <div class="name">🍷 ${r.row[0]}</div>
-        <div class="meta">
-          库存 <span class="stock">${r.row[2]}</span> · 
-          行情价 <span class="stock">${r.row[3]}</span> · 
-          存放 <span class="location">${r.row[4]}</span> · 
-          ${r.warehouse}
-        </div>
-      </div>`;
-    });
-    container.innerHTML=h;
-    container._results=results;
+    container.innerHTML = results.map((r,i)=>`<div class="item" onclick="select('${btoa(JSON.stringify(r.row))}')">
+      <div class="name">${ICONS[r.cat]||'📋'} ${Array.isArray(r.row)?r.row[0]:r.row.name||''}</div>
+      <div class="meta">${r.wh} · 库存 <span class="stock">${Array.isArray(r.row)?r.row[2]:r.row.stock||''}</span> · 位置 <span class="location">${Array.isArray(r.row)?r.row[r.row.length-1]:r.row.location||''}</span></div>
+    </div>`).join('');
   }
   container.classList.add('show');
-  overlay.classList.add('show');
+  document.getElementById('searchOverlay').classList.add('show');
 }
 
-function selectResult(idx){
-  const results=document.getElementById('searchResults')._results||[];
-  if(!results[idx])return;
-  const r=results[idx];
-  closeSearch();
-  // Highlight and scroll to matching row
-  highlightRow(r);
-}
-
-function highlightRow(target){
-  document.querySelectorAll('.highlight').forEach(el=>el.classList.remove('highlight'));
-  const name=target.row[0];
-  const rows=document.querySelectorAll('.wine-table tbody tr');
-  rows.forEach(tr=>{
-    if(tr.cells[0]&&tr.cells[0].textContent.includes(name.substring(0,10))){
-      tr.classList.add('highlight');
-      tr.scrollIntoView({behavior:'smooth',block:'center'});
-    }
-  });
+function select(encoded){
+  try{
+    const row = JSON.parse(atob(encoded));
+    const name = (Array.isArray(row)?row[0]:row.name||'').substring(0,15);
+    closeSearch();
+    const trs = document.querySelectorAll('.wine-table tbody tr');
+    trs.forEach(t=>{t.classList.remove('highlight');if(t.cells[0]&&t.cells[0].textContent.includes(name)){t.classList.add('highlight');t.scrollIntoView({behavior:'smooth',block:'center'});}});
+  }catch(e){}
 }
 
 function closeSearch(){
@@ -209,50 +184,52 @@ function closeSearch(){
   document.getElementById('searchInput').value='';
 }
 
-function initSearch(warehouse){
-  document.getElementById('searchOverlay').onclick=closeSearch;
-  const input=document.getElementById('searchInput');
-  let timer;
-  input.oninput=()=>{
-    clearTimeout(timer);
-    timer=setTimeout(()=>searchWine(input.value),200);
-  };
-  input.onkeydown=e=>{
-    if(e.key==='Escape'){closeSearch();input.blur();}
-  };
-}
-
-async function loadWine(){
-  const d=await fetch('data.json?v='+Date.now()).then(r=>r.json()).catch(()=>null);
+async function load(){
+  const d = await fetch('data.json?v='+Date.now()).then(r=>r.json()).catch(()=>null);
   if(!d){document.getElementById('wineLoading').innerHTML='数据加载失败，请刷新重试';return;}
-  document.getElementById('updateTime').textContent=d.updateTime;
-  document.getElementById('statTotal').textContent=d.stats.total||'450+';
-  const hk=d.hongkong,sz=d.shenzhen;
+  
+  document.getElementById('updateTime').textContent = d.updateTime||'';
+  document.getElementById('statTotal').textContent = d.stats.total||'—';
+  
+  const hk = d.hongkong;
+  const sz = d.shenzhen;
   if(!hk||!sz){document.getElementById('wineLoading').innerHTML='数据结构异常';return;}
-  let hkRows=normalizeRows(hk.rows,hk.columns);
-  let szRows=normalizeRows(sz.rows,sz.columns);
-
-  allWineData=[];
-  hkRows.forEach(r=>allWineData.push({row:r,warehouse:'🇭🇰 香港'}));
-  szRows.forEach(r=>allWineData.push({row:r,warehouse:'🏢 深圳'}));
 
   document.getElementById('wineLoading').style.display='none';
-  const c=document.getElementById('wineContent');c.style.display='grid';
-  const hkBadges=(hk.badges||[]).map((b,i)=>'<span class="badge '+['red','blue','green','amber'][i%4]+'">'+b+'</span>').join('');
-  const szBadges=(sz.badges||[]).map((b,i)=>'<span class="badge '+['red','blue','green','amber'][i%4]+'">'+b+'</span>').join('');
-  let h=`<div class="wine-card"><div class="wine-card-header hk">${hk.title}<span class="count">${hk.summary} · <span class="badge red">${hk.count}</span></span></div><div class="wine-summary">${hkBadges}</div><table class="wine-table"><thead><tr>`;
-  hk.columns.forEach(c=>h+=`<th>${c}</th>`);h+='</tr></thead><tbody>';
-  hkRows.forEach(r=>{h+='<tr>';r.forEach((v,i)=>h+=`<td${i===0?' style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600"':v.includes('¥')||v.includes('HK$')?' class="price"':''}>${v}</td>`);h+='</tr>'});
-  h+='</tbody></table></div>';
-  let s=`<div class="wine-card"><div class="wine-card-header sz">${sz.title}<span class="count">${sz.summary} · <span class="badge blue">${sz.count}</span></span></div><div class="wine-summary">${szBadges}</div><table class="wine-table"><thead><tr>`;
-  sz.columns.forEach(c=>s+=`<th>${c}</th>`);s+='</tr></thead><tbody>';
-  szRows.forEach(r=>{s+='<tr>';r.forEach((v,i)=>s+=`<td${i===0?' style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600"':v.includes('¥')||v.includes('HK$')?' class="price"':''}>${v}</td>`);s+='</tr>'});
-  s+='</tbody></table></div>';
-  c.innerHTML=h+s;
-  initSearch();
+  const content = document.getElementById('wineContent');
+  content.style.display='block';
+  allWine = [];
+
+  // 香港仓库
+  let html = `<div class="wine-cat-title" style="background:#fff7ed;font-size:15px;margin-top:16px">🇭🇰 香港仓库（HKO-3728）· ${hk.count||''}</div>`;
+  const hkSections = hk.sections||[];
+  hkSections.sort((a,b)=>ORDER.indexOf(a.title)-ORDER.indexOf(b.title));
+  hkSections.forEach(s=>{
+    html += renderTable(s);
+    (s.rows||[]).forEach(r=>allWine.push({row:r, cat:s.title, wh:'🇭🇰 香港'}));
+  });
+
+  // 深圳仓库
+  html += `<div class="wine-cat-title" style="background:#eff6ff;font-size:15px;margin-top:24px">🏢 深圳仓库（科兴 / 滨海）· ${sz.count||''}</div>`;
+  const szSections = sz.sections||[];
+  szSections.sort((a,b)=>ORDER.indexOf(a.title)-ORDER.indexOf(b.title));
+  szSections.forEach(s=>{
+    html += renderTable(s);
+    (s.rows||[]).forEach(r=>allWine.push({row:r, cat:s.title, wh:'🏢 深圳'}));
+  });
+
+  content.innerHTML = html;
+
+  // 搜索
+  document.getElementById('searchOverlay').onclick = closeSearch;
+  const input = document.getElementById('searchInput');
+  let timer;
+  input.oninput = ()=>{clearTimeout(timer);timer=setTimeout(()=>search(input.value),200)};
+  input.onkeydown = e=>{if(e.key==='Escape')closeSearch()};
 }
-loadWine();
-setInterval(loadWine,300000);
+
+load();
+setInterval(load, 600000);
 </script>
 </body>
 </html>
