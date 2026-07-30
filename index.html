@@ -5,154 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>高管事务支持 | 共享看板</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f2f5; color: #1a1a2e; min-height: 100vh; }
-  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; padding: 28px 40px; position: relative; overflow: hidden; }
-  .header h1 { font-size: 26px; font-weight: 700; letter-spacing: 0.5px; }
-  .header .sub { font-size: 14px; opacity: 0.7; margin-top: 6px; }
-  .header .meta { font-size: 12px; opacity: 0.5; margin-top: 10px; display: flex; gap: 20px; flex-wrap: wrap; }
-  .header .meta span { display: flex; align-items: center; gap: 4px; }
-  .stats-bar { display: flex; gap: 16px; padding: 20px 40px; background: #fff; border-bottom: 1px solid #e8eaed; flex-wrap: wrap; }
-  .stat-card { flex: 1; min-width: 160px; text-align: center; padding: 18px 12px; background: #f8f9fb; border-radius: 12px; border: 1px solid #eef0f4; }
-  .stat-card .num { font-size: 32px; font-weight: 800; color: #0f3460; line-height: 1.1; }
-  .stat-card .label { font-size: 13px; color: #6b7280; margin-top: 4px; }
-  .stat-card .sub { font-size: 11px; color: #9ca3af; margin-top: 2px; }
-  .main { padding: 24px 40px; max-width: 1400px; }
-  .section-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; color: #1a1a2e; }
-  .modules { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
-  .module-card { background: #fff; border-radius: 14px; padding: 24px; border: 1px solid #eef0f4; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; gap: 10px; }
-  .module-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
-  .module-card .icon { font-size: 28px; }
-  .module-card h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; }
-  .module-card p { font-size: 13px; color: #6b7280; line-height: 1.6; flex: 1; }
-  .module-card .tags { display: flex; gap: 6px; flex-wrap: wrap; }
-  .module-card .tag { font-size: 11px; padding: 3px 9px; background: #eff6ff; color: #2563eb; border-radius: 20px; font-weight: 500; }
-  .module-card a { display: inline-block; margin-top: 4px; font-size: 13px; color: #2563eb; text-decoration: none; font-weight: 600; }
-  .module-card a:hover { text-decoration: underline; }
-  .wine-section { margin-top: 32px; }
-  .wine-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media (max-width: 900px) { .wine-grid { grid-template-columns: 1fr; } }
-  .wine-card { background: #fff; border-radius: 14px; border: 1px solid #eef0f4; overflow: hidden; }
-  .wine-card-header { padding: 16px 20px 12px; font-weight: 700; font-size: 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-  .wine-card-header.hk { background: #fff7ed; color: #c2410c; }
-  .wine-card-header.sz { background: #eff6ff; color: #1d4ed8; }
-  .wine-card-header .count { font-size: 12px; opacity: 0.8; }
-  .wine-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-  .wine-table th { background: #f8f9fb; padding: 9px 10px; text-align: left; font-weight: 600; color: #6b7280; font-size: 11px; letter-spacing: 0.5px; border-bottom: 2px solid #eef0f4; }
-  .wine-table td { padding: 7px 10px; border-bottom: 1px solid #f3f4f6; color: #374151; line-height: 1.4; }
-  .wine-table tr:hover td { background: #fafbfc; }
-  .wine-table .name { font-weight: 600; color: #1a1a2e; max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .wine-table .price { font-weight: 600; color: #059669; white-space: nowrap; }
-  .wine-summary { padding: 6px 20px 12px; font-size: 12px; display: flex; gap: 6px; flex-wrap: wrap; }
-  .badge { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; white-space: nowrap; }
-  .badge.red { background: #fef2f2; color: #dc2626; }
-  .badge.blue { background: #eff6ff; color: #2563eb; }
-  .badge.green { background: #f0fdf4; color: #16a34a; }
-  .badge.amber { background: #fffbeb; color: #d97706; }
-  .footer { padding: 16px 40px; font-size: 12px; color: #9ca3af; text-align: center; border-top: 1px solid #eef0f4; margin-top: 32px; }
-  .loading { text-align: center; padding: 40px; color: #9ca3af; font-size: 14px; }
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#f0f2f5;color:#1a1a2e;min-height:100vh}.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#fff;padding:28px 40px;overflow:hidden}.header h1{font-size:26px;font-weight:700}.header .sub{font-size:14px;opacity:.7;margin-top:6px}.header .meta{font-size:12px;opacity:.5;margin-top:10px;display:flex;gap:20px;flex-wrap:wrap}.stats-bar{display:flex;gap:16px;padding:20px 40px;background:#fff;border-bottom:1px solid #e8eaed;flex-wrap:wrap}.stat-card{flex:1;min-width:140px;text-align:center;padding:18px 12px;background:#f8f9fb;border-radius:12px;border:1px solid #eef0f4}.stat-card .num{font-size:30px;font-weight:800;color:#0f3460}.stat-card .label{font-size:13px;color:#6b7280;margin-top:4px}.stat-card .sub{font-size:11px;color:#9ca3af}.main{padding:24px 40px;max-width:1400px}.section-title{font-size:18px;font-weight:700;margin-bottom:16px}.modules{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}.module-card{background:#fff;border-radius:14px;padding:22px;border:1px solid #eef0f4;transition:transform .15s,box-shadow .15s;display:flex;flex-direction:column;gap:8px}.module-card:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.08)}.module-card .icon{font-size:26px}.module-card h3{font-size:16px;font-weight:700}.module-card p{font-size:13px;color:#6b7280;line-height:1.5;flex:1}.module-card .tags{display:flex;gap:6px;flex-wrap:wrap}.module-card .tag{font-size:11px;padding:3px 9px;background:#eff6ff;color:#2563eb;border-radius:20px}.module-card a{font-size:13px;color:#2563eb;text-decoration:none;font-weight:600}.wine-section{margin-top:32px}.wine-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:900px){.wine-grid{grid-template-columns:1fr}}.wine-card{background:#fff;border-radius:14px;border:1px solid #eef0f4;overflow:hidden}.wine-card-header{padding:14px 20px;font-weight:700;font-size:15px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}.wine-card-header.hk{background:#fff7ed;color:#c2410c}.wine-card-header.sz{background:#eff6ff;color:#1d4ed8}.wine-card-header .count{font-size:12px;opacity:.8}.wine-table{width:100%;border-collapse:collapse;font-size:12px}.wine-table th{background:#f8f9fb;padding:8px 10px;text-align:left;font-weight:600;color:#6b7280;font-size:11px;border-bottom:2px solid #eef0f4}.wine-table td{padding:6px 10px;border-bottom:1px solid #f3f4f6;color:#374151;line-height:1.3}.wine-table tr:hover td{background:#fafbfc}.wine-table .name{font-weight:600;color:#1a1a2e;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.wine-table .price{font-weight:600;color:#059669;white-space:nowrap}.wine-summary{padding:4px 20px 10px;display:flex;gap:6px;flex-wrap:wrap}.badge{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600}.badge.red{background:#fef2f2;color:#dc2626}.badge.blue{background:#eff6ff;color:#2563eb}.badge.green{background:#f0fdf4;color:#16a34a}.badge.amber{background:#fffbeb;color:#d97706}.footer{padding:16px 40px;font-size:12px;color:#9ca3af;text-align:center;border-top:1px solid #eef0f4;margin-top:32px}.loading{text-align:center;padding:40px;color:#9ca3af}
 </style>
 </head>
 <body>
-<div class="header">
-  <h1>高管事务支持 | 共享看板</h1>
-  <div class="sub">团队协作平台 — 信息沉淀中心</div>
-  <div class="meta">
-    <span>🕐 更新时间：<span id="updateTime">加载中...</span></span>
-    <span>☁️ 数据源：腾讯文档在线表格 · 自动同步</span>
-  </div>
-</div>
+<div class="header"><h1>高管事务支持 | 共享看板</h1><div class="sub">团队协作平台 — 信息沉淀中心</div><div class="meta"><span>更新时间：<span id="updateTime">加载中...</span></span><span>数据源：腾讯文档在线表格 · 自动同步</span></div></div>
 <div class="stats-bar">
-  <div class="stat-card"><div class="num" id="statTotal">-</div><div class="label">酒水库存总量</div><div class="sub" id="statWarehouse">加载中...</div></div>
-  <div class="stat-card"><div class="num" id="statModules">-</div><div class="label">协作管理模块</div><div class="sub" id="statModulesSub"></div></div>
-  <div class="stat-card"><div class="num" id="statWarehouses">-</div><div class="label">仓库</div><div class="sub" id="statWarehouseDetail"></div></div>
-  <div class="stat-card"><div class="num">实时</div><div class="label">在线协同</div><div class="sub">每30分钟自动刷新</div></div>
+<div class="stat-card"><div class="num" id="statTotal">-</div><div class="label">酒水库存总量</div><div class="sub">深圳 · 香港</div></div>
+<div class="stat-card"><div class="num" id="statMod">5</div><div class="label">协作管理模块</div><div class="sub">差旅 · 酒水 · 物资 · 礼品 · 客户</div></div>
+<div class="stat-card"><div class="num">2</div><div class="label">仓库</div><div class="sub">深圳（科兴/滨海）· 香港（HKO）</div></div>
+<div class="stat-card"><div class="num">实时</div><div class="label">在线协同</div><div class="sub">每30分钟自动刷新</div></div>
 </div>
 <div class="main">
-  <div class="section-title">📋 功能模块入口</div>
-  <div class="modules" id="modulesGrid"><div class="loading">加载中...</div></div>
-  <div class="wine-section">
-    <div class="section-title">🍷 酒水库存明细（按仓库分区）</div>
-    <div class="loading" id="wineLoading">正在加载酒水库存数据...</div>
-    <div class="wine-grid" id="wineContent" style="display:none"></div>
-  </div>
+<div class="section-title">功能模块入口</div>
+<div class="modules" id="modulesGrid"><div class="loading">加载中...</div></div>
+<div class="wine-section">
+<div class="section-title">酒水库存明细（按仓库分区）</div>
+<div class="loading" id="wineLoading">正在加载酒水库存数据...</div>
+<div class="wine-grid" id="wineContent" style="display:none"></div>
 </div>
-<div class="footer">⚡ 数据来源：腾讯文档在线表格 · 自动同步 · 高管事务支持团队共享看板</div>
+</div>
+<div class="footer">数据来源：腾讯文档在线表格 · 自动同步 · 高管事务支持团队共享看板</div>
 <script>
-// 防缓存：每次加载最新 data.json
-async function loadData() {
-  const url = 'data.json?v=' + Date.now();
-  const res = await fetch(url);
-  return await res.json();
-}
-
-function renderStats(d) {
-  document.getElementById('updateTime').textContent = d.updateTime;
-  document.getElementById('statTotal').textContent = d.stats.total;
-  document.getElementById('statWarehouse').textContent = '深圳 · 香港';
-  document.getElementById('statModules').textContent = d.stats.modules;
-  document.getElementById('statModulesSub').textContent = '差旅 · 酒水 · 物资 · 礼品 · 客户';
-  document.getElementById('statWarehouses').textContent = d.stats.warehouses;
-  document.getElementById('statWarehouseDetail').textContent = d.stats.warehouseDetail;
-}
-
-function renderModules(modules) {
-  const grid = document.getElementById('modulesGrid');
-  grid.innerHTML = '';
-  modules.forEach(m => {
-    const tags = m.tags.map(t => '<span class="tag">' + t + '</span>').join('');
-    grid.innerHTML += '<div class="module-card"><div class="icon">' + m.icon + '</div><h3>' + m.title + '</h3><p>' + m.desc + '</p><div class="tags">' + tags + '</div><a href="' + m.link + '" target="_blank">→ 查看</a></div>';
-  });
-}
-
-function renderWineCard(card, isHK) {
-  const cls = isHK ? 'hk' : 'sz';
-  const badges = card.badges.map((b,i) => {
-    const colors = ['red','blue','green','amber'];
-    return '<span class="badge ' + colors[i%4] + '">' + b + '</span>';
-  }).join('');
-  let html = '<div class="wine-card"><div class="wine-card-header ' + cls + '">' + card.title + '<span class="count">' + card.summary + ' · <span class="badge ' + (isHK?'red':'blue') + '">' + card.count + '</span></span></div><div class="wine-summary">' + badges + '</div><table class="wine-table"><thead><tr>';
-  card.columns.forEach(c => { html += '<th>' + c + '</th>'; });
-  html += '</tr></thead><tbody>';
-  card.rows.forEach(row => {
-    html += '<tr>';
-    row.forEach((cell,i) => {
-      const cls = i === 0 ? ' class="name"' : (cell.toString().includes('¥') || cell.toString().includes('HK$') ? ' class="price"' : '');
-      html += '<td' + cls + '>' + cell + '</td>';
-    });
-    html += '</tr>';
-  });
-  html += '</tbody></table></div>';
-  return html;
-}
-
-function renderWine(d) {
-  document.getElementById('wineLoading').style.display = 'none';
-  const content = document.getElementById('wineContent');
-  content.style.display = 'grid';
-  content.innerHTML = renderWineCard(d.hongkong, true) + renderWineCard(d.shenzhen, false);
-}
-
-// 每隔 5 分钟自动重新加载
-async function init() {
-  try {
-    const d = await loadData();
-    renderStats(d);
-    renderModules(d.modules);
-    renderWine(d);
-  } catch(e) {
-    document.getElementById('wineLoading').innerHTML = '加载失败，请刷新页面重试';
-  }
-  // 自动每5分钟刷新
-  setInterval(async () => {
-    try {
-      const d = await loadData();
-      renderStats(d);
-      renderWine(d);
-    } catch(e) {}
-  }, 300000);
-}
-
+function nRow(r,k){if(Array.isArray(r))return r.map(c=>String(c||''));if(typeof r==='object'&&r!==null)return k.map(c=>{let v=r[c]||r[c.toLowerCase()]||'';if((c==='库存'||c==='stock')&&typeof v==='number')v=v+'支';return String(v||'')});return[]}
+function gKeys(c){const m={'酒款':'name','名称':'name','年份':'year','库存':'stock','行情价':'price','位置':'location','标签':'tag','备注':'tag'};return c.map(x=>m[x]||x.toLowerCase())}
+var DM=[{icon:"✈️",title:"差旅出行",desc:"管理老板的出行计划与差旅安排，记录航班/高铁、酒店预订、接送车辆。",tags:["航班/高铁","酒店预订","接送安排","出行备注"],link:"https://docs.qq.com/sheet/DU2dzUGFNR0VhT1hN"},{icon:"🍷",title:"酒水库存管理",desc:"整合深圳+香港两大仓库酒水数据，支持实时出入库登记、每月行情价格更新。",tags:["出入库登记","行情价格","深圳仓库","香港仓库"],link:"https://docs.qq.com/sheet/DU05MeXZDSGdST1pV"},{icon:"📦",title:"仓库物资管理",desc:"管理办公室日常物资库存，记录物品名称、数量、位置及低库存预警。",tags:["库存数量","存放位置","低库存预警","出入库"],link:"https://docs.qq.com/sheet/DU1hUR3dNVEt1WE9T"},{icon:"🎁",title:"礼品管理",desc:"统一管理礼品库存、采购价与市场价、适用场合及出库记录。",tags:["库存管理","采购市价","适用场合"],link:"https://docs.qq.com/sheet/DU2JiQWdOeEt0YVp6"},{icon:"🤝",title:"客户关系维护",desc:"记录重要客户信息、偏好禁忌、跟进节点，支持提醒维护安排。",tags:["客户档案","偏好禁忌","跟进提醒"],link:"https://docs.qq.com/sheet/DU2VBRkRvenZLeGdo"},{icon:"📁",title:"腾讯文档文件夹",desc:"所有模块关联的腾讯文档云端存储位置，可管理分享权限、邀请协同编辑。",tags:["云端存储","权限管理","团队协同"],link:"https://docs.qq.com/desktop/mydoc/folder/SmLyTSIxEpzs"}];
+function rStats(d){var s=d.stats||{};document.getElementById('updateTime').textContent=d.updateTime||'';document.getElementById('statTotal').textContent=s.total||'450+';document.getElementById('statMod').textContent=s.modules||5}
+function rMods(m){var g=document.getElementById('modulesGrid');g.innerHTML='';var l=(m&&m.length>0)?m:DM;l.forEach(function(m){var t=(m.tags||[]).map(function(x){return'<span class="tag">'+x+'</span>'}).join('');g.innerHTML+='<div class="module-card"><div class="icon">'+(m.icon||'📋')+'</div><h3>'+(m.title||m.name||'')+'</h3><p>'+(m.desc||m.description||'')+'</p><div class="tags">'+t+'</div><a href="'+(m.link||m.url||'#')+'" target="_blank">→ 查看</a></div>'})}
+function rCard(c,hk){if(!c)return'';var cls=hk?'hk':'sz';var bd=(c.badges||[]).map(function(b,i){var cs=['red','blue','green','amber'];return'<span class="badge '+cs[i%4]+'">'+b+'</span>'}).join('');var cols=c.columns||(hk?['酒款','年份','库存','行情价','标签']:['酒款','库存','行情价','位置']);var keys=gKeys(cols);var h='<div class="wine-card"><div class="wine-card-header '+cls+'">'+(c.title||'')+'<span class="count">'+(c.summary||'')+' · <span class="badge '+(hk?'red':'blue')+'">'+(c.count||'')+'</span></span></div>';if(bd)h+='<div class="wine-summary">'+bd+'</div>';h+='<table class="wine-table"><thead><tr>';cols.forEach(function(c){h+='<th>'+c+'</th>'});h+='</tr></thead><tbody>';(c.rows||[]).forEach(function(r){var cells=nRow(r,keys);h+='<tr>';cells.forEach(function(cell,i){var isName=i===0;var isPrice=String(cell).indexOf('¥')>=0||String(cell).indexOf('HK$')>=0;h+='<td'+(isName?' class="name"':(isPrice?' class="price"':''))+'>'+cell+'</td>'});h+='</tr>'});h+='</tbody></table></div>';return h}
+function rWine(d){document.getElementById('wineLoading').style.display='none';document.getElementById('wineContent').style.display='grid';document.getElementById('wineContent').innerHTML=rCard(d.hongkong,true)+rCard(d.shenzhen,false)}
+async function init(){try{var res=await fetch('data.json?v='+Date.now());var d=await res.json();rStats(d);rMods(d.modules);rWine(d)}catch(e){document.getElementById('wineLoading').innerHTML='加载失败，请刷新页面重试';rMods(null)}setInterval(async function(){try{var res=await fetch('data.json?v='+Date.now());var d=await res.json();rStats(d);rWine(d)}catch(e){}},300000)}
 init();
 </script>
 </body>
