@@ -159,7 +159,7 @@ function search(q){
   if(!results.length){
     container.innerHTML='<div class="empty">未找到匹配酒款</div>';
   }else{
-    container.innerHTML = results.map((r,i)=>`<div class="item" onclick="select('${btoa(JSON.stringify(r.row))}')">
+    container.innerHTML = results.map((r,i)=>`<div class="item" onclick="select(this)">
       <div class="name">${ICONS[r.cat]||'📋'} ${Array.isArray(r.row)?r.row[0]:r.row.name||''}</div>
       <div class="meta">${r.wh} · 库存 <span class="stock">${Array.isArray(r.row)?r.row[2]:r.row.stock||''}</span> · 位置 <span class="location">${Array.isArray(r.row)?r.row[r.row.length-1]:r.row.location||''}</span></div>
     </div>`).join('');
@@ -168,10 +168,9 @@ function search(q){
   document.getElementById('searchOverlay').classList.add('show');
 }
 
-function select(encoded){
+function select(el){
   try{
-    const row = JSON.parse(atob(encoded));
-    const name = (Array.isArray(row)?row[0]:row.name||'').substring(0,15);
+    const name = el.querySelector('.name')?.textContent?.replace(/^[\s\S]{0,3}\s/,'').substring(0,15)||'';
     closeSearch();
     const trs = document.querySelectorAll('.wine-table tbody tr');
     trs.forEach(t=>{t.classList.remove('highlight');if(t.cells[0]&&t.cells[0].textContent.includes(name)){t.classList.add('highlight');t.scrollIntoView({behavior:'smooth',block:'center'});}});
