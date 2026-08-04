@@ -189,6 +189,8 @@ async function load(){
   
   document.getElementById('updateTime').textContent = d.updateTime||'';
   document.getElementById('statTotal').textContent = d.stats.total||'—';
+  document.getElementById('statSZ').textContent = (d.stats.szBottles||'')+'瓶';
+  document.getElementById('statHK').textContent = (d.stats.hkBottles||'')+'瓶';
   
   const hk = d.hongkong;
   const sz = d.shenzhen;
